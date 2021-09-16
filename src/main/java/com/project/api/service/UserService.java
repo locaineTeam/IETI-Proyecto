@@ -19,6 +19,6 @@ public interface UserService {
 
     User deleteById(String id ) throws UserException;
 
-    User update( User user, String userId ) throws UserException;
+    //User update( User user, String userId ) throws UserException;
     User update( UserDto user, String userId ) throws UserException;
 }

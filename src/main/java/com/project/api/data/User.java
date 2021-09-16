@@ -9,15 +9,17 @@ import java.util.UUID;
 
 public class User {
 
-    private String id, name, email, lastName, birthDate;
+    private String id, name, email, lastName, birthDate, foto, descripcion;
 
 
-    public User(String id, String name, String email, String lastName, String birthDate) {
+    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion ) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.lastName = lastName;
         this.birthDate = birthDate;
+        this.foto = foto;
+        this.descripcion = descripcion;
     }
 
     public User(UserDto user) {
@@ -25,7 +27,9 @@ public class User {
         this.name = user.getName();
         this.email = user.getEmail();
         this.lastName = user.getLastName();
-        this.birthDate = null;
+        this.birthDate = user.getBirthDay();
+        this.foto = user.getFoto();
+        this.descripcion = user.getDescripcion();
 
     }
 

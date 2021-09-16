@@ -1,16 +1,20 @@
 package com.project.api.dto;
 
 public class UserDto {
-    private String name, email, lastName;
+    private String name, email, lastName, birthDay, foto, descripcion;
 
 
-    public UserDto(String name, String email, String lastName){
+    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion ){
 
         this.name=name;
         this.email=email;
         this.lastName=lastName;
+        this.birthDay = birthDay;
+        this.foto = foto;
+        this.descripcion = descripcion;
 
     }
+
 
     public String getName() {
         return name;
@@ -34,5 +38,29 @@ public class UserDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

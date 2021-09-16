@@ -8,34 +8,32 @@ import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
+/**
+ * The type User service.
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
+    /**
+     * The Map.
+     */
     HashMap<String, User> map = new HashMap <String, User> ();
 
 
+    /**
+     * Instantiates a new User service.
+     */
     public UserServiceImpl(){
-        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate"));
-        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos"));
+        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate","123"));
+        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos","123"));
         map.put(user1.getId(), user1);
         map.put(user2.getId(), user2);
 
     }
-    @Override
-    public User create(User user) {
-
-        map.put(user.getId(),user);
-        return user;
-
-
-    }
-
 
     @Override
     public User create(UserDto user) throws UserException {
@@ -69,13 +67,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User deleteById(String id) throws UserException {
+    public boolean deleteById(String id) throws UserException {
 
         User userDelete = map.remove(id);
         if(userDelete==null){
             throw new UserException("Este Usuario no existe.");
         }
-        return userDelete;
+        return true;
 
 
     }
@@ -98,4 +96,20 @@ public class UserServiceImpl implements UserService {
         return value;
 
     }
+
+    @Override
+    public User findByEmail(String email) throws UserException {
+
+        List<User> users = map.values()
+                .stream()
+                .filter(user -> user.getEmail().equals(email))
+                .collect(Collectors.toList());
+        if(users.isEmpty()){
+            throw new UserException("");
+        }
+
+        return null;
+    }
+
+
 }

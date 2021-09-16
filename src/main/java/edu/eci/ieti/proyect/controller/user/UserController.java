@@ -1,4 +1,4 @@
-package edu.eci.ieti.proyect.controller;
+package edu.eci.ieti.proyect.controller.user;
 
 
 

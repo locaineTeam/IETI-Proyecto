@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 /**
@@ -40,10 +41,13 @@ public class UserController {
      * @return the response entity
      */
     @GetMapping
-    public ResponseEntity<List<User>> all()
+    public ResponseEntity<?> all()
     {
-
-        return new ResponseEntity<>(userService.all(), HttpStatus.OK);
+        try{
+            return new ResponseEntity<>(userService.all(), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>("Se presenta un error", HttpStatus.BAD_REQUEST);
+        }
 
     }
 
@@ -107,6 +111,7 @@ public class UserController {
      * @return the response entity
      */
     @DeleteMapping( "/{id}" )
+    @RolesAllowed("ADMIN")
     public ResponseEntity<?> delete( @PathVariable String id )
     {
         try {

@@ -5,11 +5,15 @@ package edu.eci.ieti.proyect.entity;
 
 
 import edu.eci.ieti.proyect.dto.UserDto;
+import edu.eci.ieti.proyect.entity.document.RoleEnum;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import java.security.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,6 +29,7 @@ public class User {
     private String email;
     private String lastName;
     private String birthDate;
+    List<RoleEnum> roles;
     private String foto;
     private String descripcion;
     private String password;
@@ -52,6 +57,7 @@ public class User {
         this.birthDate = birthDate;
         this.foto = foto;
         this.descripcion = descripcion;
+        this.roles = new ArrayList<>( Collections.singleton( RoleEnum.USER ) );
         this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
     }
 
@@ -67,6 +73,7 @@ public class User {
         this.birthDate = user.getBirthDay();
         this.foto = user.getFoto();
         this.descripcion = user.getDescripcion();
+        this.roles = new ArrayList<>( Collections.singleton( RoleEnum.USER ) );
         this.password = BCrypt.hashpw( user.getPassword(), BCrypt.gensalt() );
 
     }
@@ -180,8 +187,15 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-  
-  
+
+    public List<RoleEnum> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleEnum> roles) {
+        this.roles = roles;
+    }
+
     public void update (UserDto userDto){
         this.name = userDto.getName();      
         this.lastName = userDto.getLastName();

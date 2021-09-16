@@ -1,14 +1,17 @@
-package edu.eci.ieti.proyect.service;
+package edu.eci.ieti.proyect.service.impl;
 
 import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.User;
 import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.repository.UserRepository;
+import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserServiceMongoDB implements UserService {
     private final UserRepository userRepository;
 
@@ -54,5 +57,14 @@ public class UserServiceMongoDB implements UserService {
             return u;
         }
         return null;
+    }
+
+    @Override
+    public User findByEmail(String email) throws UserException {
+        Optional<User> user = userRepository.findByEmail(email);
+        if(user.isPresent()){
+            return user.get();
+        }
+        throw new UserException(UserException.USER_NOT_FOUND);
     }
 }

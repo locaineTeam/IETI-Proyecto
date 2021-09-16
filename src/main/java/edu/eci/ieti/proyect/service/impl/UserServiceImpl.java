@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * The type User service.
  */
-@Service
+
 public class UserServiceImpl implements UserService {
 
     /**

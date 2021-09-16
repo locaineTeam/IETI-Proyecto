@@ -14,20 +14,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Calendar;
 import java.util.Date;
 
+import static edu.eci.ieti.proyect.util.Constants.CLAIMS_ROLES_KEY;
 import static edu.eci.ieti.proyect.util.Constants.TOKEN_DURATION_MINUTES;
+
 
 /**
  * The type Auth controller.
  */
-@Controller
-@RequestMapping( "v1/auth" )
+@RestController
+@RequestMapping( "v1/auth")
 public class AuthController {
-
-    private static final String CLAIMS_ROLES_KEY = "IETI_ROLES";
 
     @Value( "${app.secret}" )
     private String secret;
@@ -75,7 +76,7 @@ public class AuthController {
     {
         return Jwts.builder()
                 .setSubject( user.getId() )
-                .claim( CLAIMS_ROLES_KEY, user.getName())
+                .claim( CLAIMS_ROLES_KEY, user.getRoles())
                 .setIssuedAt(new Date() )
                 .setExpiration( expirationDate )
                 .signWith( SignatureAlgorithm.HS256, secret )

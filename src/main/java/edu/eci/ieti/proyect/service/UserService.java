@@ -13,13 +13,6 @@ import java.util.List;
  * The interface User service.
  */
 public interface UserService {
-    /**
-     * Create user.
-     *
-     * @param user the user
-     * @return the user
-     */
-    User create(User user );
 
     /**
      * Create user.
@@ -50,10 +43,10 @@ public interface UserService {
      * Delete by id user.
      *
      * @param id the id
-     * @return the user
+     * @return the boolean value to delete successfully
      * @throws UserException the user exception
      */
-    User deleteById(String id ) throws UserException;
+    boolean deleteById(String id ) throws UserException;
 
     /**
      * Update user.

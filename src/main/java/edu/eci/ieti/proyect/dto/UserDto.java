@@ -4,6 +4,7 @@ package edu.eci.ieti.proyect.dto;
  * The type User dto.
  */
 public class UserDto {
+  
     private String name, email, lastName, birthDay, foto, descripcion, password;
 
 
@@ -138,7 +139,6 @@ public class UserDto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
     /**
      * Gets password.
      *
@@ -146,14 +146,5 @@ public class UserDto {
      */
     public String getPassword() {
         return password;
-    }
-
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

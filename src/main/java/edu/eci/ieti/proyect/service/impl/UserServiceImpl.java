@@ -34,15 +34,6 @@ public class UserServiceImpl implements UserService {
         map.put(user2.getId(), user2);
 
     }
-    @Override
-    public User create(User user) {
-
-        map.put(user.getId(),user);
-        return user;
-
-
-    }
-
 
     @Override
     public User create(UserDto user) throws UserException {
@@ -76,13 +67,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User deleteById(String id) throws UserException {
+    public boolean deleteById(String id) throws UserException {
 
         User userDelete = map.remove(id);
         if(userDelete==null){
             throw new UserException("Este Usuario no existe.");
         }
-        return userDelete;
+        return true;
 
 
     }

@@ -5,18 +5,32 @@ package edu.eci.ieti.proyect.entity;
 
 
 import edu.eci.ieti.proyect.dto.UserDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-
 import java.security.Timestamp;
 import java.util.UUID;
 
 /**
  * The type User.
  */
+@Document
 public class User {
 
-    private String id, name, email, lastName, birthDate, foto, descripcion, password;
+    @Id
+    private String id;
+    private String name;
+    @Indexed(unique=true)
+    private String email;
+    private String lastName;
+    private String birthDate;
+    private String foto;
+    private String descripcion;
+    private String password;
 
+    public User() {
+    }
 
     /**
      * Instantiates a new User.
@@ -38,7 +52,7 @@ public class User {
         this.birthDate = birthDate;
         this.foto = foto;
         this.descripcion = descripcion;
-        this.password = password;
+        this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
     }
 
     /**
@@ -47,7 +61,6 @@ public class User {
      * @param user the user
      */
     public User(UserDto user) {
-        this.id = UUID.randomUUID().toString();
         this.name = user.getName();
         this.email = user.getEmail();
         this.lastName = user.getLastName();
@@ -149,7 +162,7 @@ public class User {
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
-
+  
     /**
      * Gets password.
      *
@@ -167,4 +180,17 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+  
+  
+    public void update (UserDto userDto){
+        this.name = userDto.getName();      
+        this.lastName = userDto.getLastName();
+        this.birthDate = userDto.getBirthDay();
+        this.descripcion = userDto.getDescripcion();
+        this.email = userDto.getEmail();
+        this.foto = userDto.getFoto();
+        this.password = BCrypt.hashpw( userDto.getPassword(), BCrypt.gensalt() );
+    }
+
+   
 }

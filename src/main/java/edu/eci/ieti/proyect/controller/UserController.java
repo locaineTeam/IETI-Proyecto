@@ -1,10 +1,11 @@
-package com.project.api.controller;
+package edu.eci.ieti.proyect.controller;
 
 
-import com.project.api.data.User;
-import com.project.api.dto.UserDto;
-import com.project.api.exception.UserException;
-import com.project.api.service.UserService;
+
+import edu.eci.ieti.proyect.dto.UserDto;
+import edu.eci.ieti.proyect.entity.User;
+import edu.eci.ieti.proyect.exception.UserException;
+import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping( "/v1/user" )
+@RequestMapping( "/box/user" )
 public class UserController {
 
 

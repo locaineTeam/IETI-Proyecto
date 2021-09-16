@@ -1,13 +1,13 @@
-package com.project.api;
+package edu.eci.ieti.proyect;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiApplication {
+public class ProyectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
+		SpringApplication.run(ProyectApplication.class, args);
 	}
 
 }

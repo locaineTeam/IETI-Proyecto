@@ -1,10 +1,11 @@
-package com.project.api.service.impl;
+package edu.eci.ieti.proyect.service.impl;
 
 
-import com.project.api.data.User;
-import com.project.api.dto.UserDto;
-import com.project.api.exception.UserException;
-import com.project.api.service.UserService;
+
+import edu.eci.ieti.proyect.dto.UserDto;
+import edu.eci.ieti.proyect.entity.User;
+import edu.eci.ieti.proyect.exception.UserException;
+import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class UserServiceImpl implements UserService {
 
 
     public UserServiceImpl(){
-        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez"));
-        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele"));
+        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate"));
+        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos"));
         map.put(user1.getId(), user1);
         map.put(user2.getId(), user2);
 
@@ -79,20 +80,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public User update(User user, String userId) throws UserException {
-        User value = null;
 
-        if(map.containsKey(userId)){
-            value = map.get(userId);
-            map.put(userId,user);
-        }
-
-        if(value == null){
-            throw new UserException("Este Usuario no existe.");
-        }
-        return value;
-    }
 
     @Override
     public User update(UserDto user, String userId) throws UserException {

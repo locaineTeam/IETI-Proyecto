@@ -8,15 +8,34 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The type Token authentication.
+ */
 public class TokenAuthentication
         extends AbstractAuthenticationToken
 {
+    /**
+     * The Token.
+     */
     String token;
 
+    /**
+     * The Subject.
+     */
     String subject;
 
+    /**
+     * The Roles.
+     */
     List<String> roles;
 
+    /**
+     * Instantiates a new Token authentication.
+     *
+     * @param token   the token
+     * @param subject the subject
+     * @param roles   the roles
+     */
     public TokenAuthentication( String token, String subject, List<String> roles )
     {
         super( null );

@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * The type User controller.
+ */
 @RestController
 @RequestMapping( "/box/user" )
 public class UserController {
@@ -20,12 +23,22 @@ public class UserController {
 
     private final UserService userService;
 
+    /**
+     * Instantiates a new User controller.
+     *
+     * @param userService the user service
+     */
     public UserController(@Autowired UserService userService )
     {
         this.userService = userService;
     }
 
 
+    /**
+     * All response entity.
+     *
+     * @return the response entity
+     */
     @GetMapping
     public ResponseEntity<List<User>> all()
     {
@@ -34,6 +47,12 @@ public class UserController {
 
     }
 
+    /**
+     * Find by id response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable String id )
     {
@@ -46,6 +65,12 @@ public class UserController {
     }
 
 
+    /**
+     * Create response entity.
+     *
+     * @param userDto the user dto
+     * @return the response entity
+     */
     @PostMapping
     public ResponseEntity<?> create( @RequestBody UserDto userDto )
     {
@@ -57,6 +82,13 @@ public class UserController {
         }
     }
 
+    /**
+     * Update response entity.
+     *
+     * @param userDto the user dto
+     * @param id      the id
+     * @return the response entity
+     */
     @PutMapping( "/{id}" )
     public ResponseEntity<?> update(@RequestBody UserDto userDto, @PathVariable String id )
     {
@@ -68,6 +100,12 @@ public class UserController {
 
     }
 
+    /**
+     * Delete response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @DeleteMapping( "/{id}" )
     public ResponseEntity<?> delete( @PathVariable String id )
     {

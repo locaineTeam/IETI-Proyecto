@@ -10,14 +10,25 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+/**
+ * The type Security configuration.
+ */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity( securedEnabled = true, jsr250Enabled = true, prePostEnabled = true )
 public class SecurityConfiguration
         extends WebSecurityConfigurerAdapter
 {
 
+    /**
+     * The Jwt request filter.
+     */
     JwtRequestFilter jwtRequestFilter;
 
+    /**
+     * Instantiates a new Security configuration.
+     *
+     * @param jwtRequestFilter the jwt request filter
+     */
     public SecurityConfiguration( @Autowired JwtRequestFilter jwtRequestFilter )
     {
         this.jwtRequestFilter = jwtRequestFilter;

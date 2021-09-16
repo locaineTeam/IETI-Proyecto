@@ -10,7 +10,6 @@ import edu.eci.ieti.proyect.exception.UserException;
 import java.util.List;
 
 public interface UserService {
-    User create(User user );
 
     User create(UserDto user ) throws UserException;
 
@@ -18,7 +17,7 @@ public interface UserService {
 
     List<User> all();
 
-    User deleteById(String id ) throws UserException;
+    boolean deleteById(String id ) throws UserException;
 
     //User update( User user, String userId ) throws UserException;
     User update( UserDto user, String userId ) throws UserException;

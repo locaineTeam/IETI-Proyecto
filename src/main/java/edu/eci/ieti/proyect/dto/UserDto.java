@@ -1,7 +1,7 @@
 package edu.eci.ieti.proyect.dto;
 
 public class UserDto {
-    private String name, email, lastName, birthDay, foto, descripcion;
+    private String name, email, lastName, birthDay, foto, descripcion,password;
 
 
     public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion ){
@@ -62,5 +62,9 @@ public class UserDto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getPassword() {
+        return this.password;
     }
 }

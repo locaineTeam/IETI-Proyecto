@@ -193,6 +193,22 @@ public class User {
         this.password = password;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
+    }
+
     public List<RoleEnum> getRoles() {
         return roles;
     }
@@ -209,6 +225,8 @@ public class User {
         this.email = userDto.getEmail();
         this.foto = userDto.getFoto();
         this.password = BCrypt.hashpw( userDto.getPassword(), BCrypt.gensalt() );
+        this.genero=userDto.getGenero();
+        this.universidad= userDto.getUniversidad();
     }
 
    

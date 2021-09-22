@@ -67,6 +67,19 @@ public class UserController {
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/university/{universidad}/{genero}")
+    public ResponseEntity<?> findByUniGen(@PathVariable String universidad,@PathVariable String genero )
+    {
+        return new ResponseEntity<>(userService.findByUniversidadGenero(universidad,genero),HttpStatus.OK);
+    }
+
+    @GetMapping("/university/{universidad}")
+    public ResponseEntity<?> findByUni(@PathVariable String universidad)
+    {
+        return new ResponseEntity<>(userService.findByUniversidad(universidad),HttpStatus.OK);
+    }
+
+
 
 
     /**

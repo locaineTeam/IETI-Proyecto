@@ -111,5 +111,17 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public List<User> findByUniversidadGenero(String universidad, String genero) {
+        return null;
+    }
+
+    @Override
+    public List<User> findByUniversidad(String universidad) {
+        return null;
+    }
+
+
+
 
 }

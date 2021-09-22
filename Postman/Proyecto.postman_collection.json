@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "4d22de94-9728-4e7f-b69e-48e3229e6cbe",
+		"name": "Proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/v1/auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"carlo@madri.com\",\r\n    \"password\":\"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/box/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhOWU2NDVhZGU5NjNkMmE2MWFjNTMiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyMjgwMjM3LCJleHAiOjE2MzIzNjY2Mzd9.YLHyXrTXFa6hVKqvR0cRESbi8CM1A0Slul1qXv5ZeDM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Autorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTM5NWQ0Y2I4MTBlODZkZGI0OTBhZjgiLCJhZGFfcm9sZXMiOlsiVVNFUiJdLCJpYXQiOjE2MzExNTAyNjksImV4cCI6MTYzMTIzNjY2OX0.l8Y5O5DrdrEVkWeU5jBuXN-jh2i79ud05Jq5L1qiEgk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/box/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"box",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

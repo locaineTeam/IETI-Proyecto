@@ -67,4 +67,9 @@ public interface UserService {
      * @throws UserException the user exception
      */
     User findByEmail(String email) throws UserException;
+
+    List<User>findByUniversidadGenero(String universidad,String genero) ;
+
+    List<User> findByUniversidad(String universidad);
+
 }

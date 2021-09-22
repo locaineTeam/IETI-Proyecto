@@ -44,6 +44,7 @@ public class SecurityConfiguration
                 .antMatchers(HttpMethod.GET, "/v1/works" ).permitAll()
                 .antMatchers( HttpMethod.POST,"/v1/auth" ).permitAll()
                 .antMatchers( HttpMethod.POST,"/box/user" ).permitAll()
+                .antMatchers( HttpMethod.GET,"/box/user" ).permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS );
     }

@@ -33,7 +33,8 @@ public class User {
     private String foto;
     private String descripcion;
     private String password;
-
+    private String genero;
+    private String universidad;
     public User() {
     }
 
@@ -49,7 +50,7 @@ public class User {
      * @param descripcion the descripcion
      * @param password    the password
      */
-    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion, String password) {
+    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion, String password,String genero,String universidad) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -59,6 +60,8 @@ public class User {
         this.descripcion = descripcion;
         this.roles = new ArrayList<>( Collections.singleton( RoleEnum.USER ) );
         this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
+        this.genero=genero;
+        this.universidad=universidad;
     }
 
     /**
@@ -75,6 +78,8 @@ public class User {
         this.descripcion = user.getDescripcion();
         this.roles = new ArrayList<>( Collections.singleton( RoleEnum.USER ) );
         this.password = BCrypt.hashpw( user.getPassword(), BCrypt.gensalt() );
+        this.genero= user.getGenero();
+        this.universidad=user.getUniversidad();
 
     }
 
@@ -188,6 +193,22 @@ public class User {
         this.password = password;
     }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
+    }
+
     public List<RoleEnum> getRoles() {
         return roles;
     }
@@ -204,6 +225,8 @@ public class User {
         this.email = userDto.getEmail();
         this.foto = userDto.getFoto();
         this.password = BCrypt.hashpw( userDto.getPassword(), BCrypt.gensalt() );
+        this.genero=userDto.getGenero();
+        this.universidad= userDto.getUniversidad();
     }
 
    

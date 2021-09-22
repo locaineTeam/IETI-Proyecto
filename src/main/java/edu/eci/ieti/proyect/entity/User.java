@@ -33,7 +33,8 @@ public class User {
     private String foto;
     private String descripcion;
     private String password;
-
+    private String genero;
+    private String universidad;
     public User() {
     }
 
@@ -49,7 +50,7 @@ public class User {
      * @param descripcion the descripcion
      * @param password    the password
      */
-    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion, String password) {
+    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion, String password,String genero,String universidad) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -59,6 +60,8 @@ public class User {
         this.descripcion = descripcion;
         this.roles = new ArrayList<>( Collections.singleton( RoleEnum.USER ) );
         this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
+        this.genero=genero;
+        this.universidad=universidad;
     }
 
     /**
@@ -75,6 +78,8 @@ public class User {
         this.descripcion = user.getDescripcion();
         this.roles = new ArrayList<>( Collections.singleton( RoleEnum.USER ) );
         this.password = BCrypt.hashpw( user.getPassword(), BCrypt.gensalt() );
+        this.genero= user.getGenero();
+        this.universidad=user.getUniversidad();
 
     }
 

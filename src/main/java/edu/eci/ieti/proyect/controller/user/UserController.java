@@ -40,7 +40,7 @@ public class UserController {
      *
      * @return the response entity
      */
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<?> all()
     {
         try{

@@ -5,7 +5,15 @@ package edu.eci.ieti.proyect.dto;
  */
 public class UserDto {
   
-    private String name, email, lastName, birthDay, foto, descripcion, password;
+    private String name;
+    private String email;
+    private String lastName;
+    private String birthDay;
+    private String foto;
+    private String descripcion;
+    private String password;
+    private String genero;
+    private String universidad;
 
 
     /**
@@ -19,7 +27,7 @@ public class UserDto {
      * @param descripcion the descripcion
      * @param password    the password
      */
-    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password ){
+    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password,String genero,String universidad){
 
         this.name=name;
         this.email=email;
@@ -28,6 +36,8 @@ public class UserDto {
         this.foto = foto;
         this.descripcion = descripcion;
         this.password = password;
+        this.genero=genero;
+        this.universidad=universidad;
 
     }
 
@@ -147,4 +157,37 @@ public class UserDto {
     public String getPassword() {
         return password;
     }
+    /**
+     * Gets Genero.
+     *
+     * @return the genero
+     */
+    public String getGenero() {
+        return genero;
+    }
+    /**
+     * Sets Genero.
+     *
+     * @param genero the genero
+     */
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    /**
+     * Gets universidad.
+     *
+     * @return the universidad
+     */
+    public String getUniversidad() {
+        return universidad;
+    }
+    /**
+     * Gets universidad.
+     *
+     * @param universidad the universidad
+     */
+    public void setUniversidad(String universidad) {
+        this.universidad = universidad;
+    }
+
 }

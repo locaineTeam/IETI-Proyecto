@@ -18,8 +18,9 @@
 ### Asignación de roles:
 |     Nombre    |     Rol         |
 |--------------|------------- |
-|Diego Alfonso Prieto	|Product Owner    |
-|Fabian Ramírez|Scrum Master  |
+|Santiago Carrillo Barbosa	|Product Owner    |
+|Dagoberto Borda Garzon	|Product Owner    |
+||  |
 
  
 
@@ -35,7 +36,7 @@ Es un herramienta desarrollada por el grupo de desarrolladores “Locaine Team�
 
  ## Descripción del Producto
  
-Es un herramienta desarrollada por el grupo de desarrolladores “Software-Stark-Industries” la cual se encarga de mejorar el servicio que presta el sistema de horarios, de la Escuela Colombiana de Ingeniería Julio Garavito. En la plataforma podemos encontrar varias funcionalidades que presta ya la plataforma de Sistemas Horarios, mediante Enlace Académico, con un Valor agregado de tener la posibilidad de tener varios planes de horario por el semestre que va a cursar, ya sean unos 5 o 6 planes. Logrando que cuando tenga su turno para inscribir materias pueda visualizar estos planes, permitiendo que, si alguno de estos le sirve y cuenta con la disponibilidad en todas las materias, pueda inscribir todas estas materias con un simple CLICK.  Esto con el fin de brindar un buen servicio a la comunidad de estudiantes. Entre ellas encontramos funciones como: Agregar materias a su horario que no sean académicas, si no de tipo extracurricular, y poder tener toda su programación por semestre en un mismo lugar. Consiguiendo así una mejor experiencia en la creación de horarios para los estudiantes de la Escuela Colombiana Julio Garavito.
+
 
 ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/objetivos%20eci%20horarios.png)
 
@@ -57,107 +58,7 @@ Es un herramienta desarrollada por el grupo de desarrolladores “Software-Stark
 
 ## **Manual de Usuario**
 
-[Presione Aqui para revisar El Manual de Usuario](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Manual%20de%20Usuario%20Software%20Stark%20%20Industries--ECI%20Horarios.pdf)
 
-![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/portada%20manual%20de%20usuario.png)
-
-  ### 1. **Acceso al sitio web**
-  - Ingrese al navegador de preferencia y escriba en la barra de direcciones el siguiente URL de acceso:
-      https://frontendservicioseci.herokuapp.com/index.html
-  
-  ### 2.	**Inicio de Sesión**
-  - Para el inicio de sesión, en la pagina principal debemos irnos a la esquina superior derecha, en donde encontraremos un botón LOGIN. 
-  
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/boton%20login.png)
-  
-  - Al dar clic en el botón, nos redirigirá al menú de acceso, en donde nos solicitara en los espacios en blanco un Correo y una contraseña, al ingresar dichos datos procedemos a darle INGRESAR.
-  
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/LOGIN%20PRINCIPAL.png)
-  - Si somos usuarios de estudiante, nos permitira tener una opción de registrarnos, con nuestro nombre, correo y una contraseña.
-  
-   ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/registro%20usuario.png)
-  
-  - •	Existen dos tipos de usuario llamados:
-        - Administrador
-        ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/login%20Admin.png)
-        - Estudiante
-        ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/Login%20Estudiante.png)
-
-  
-  ### 3. **Menú de Administrador**
-  - •	Al presionar al ingresar al menú de administrador podremos acceder a estas diferentes opciones:
-  1. Consultar Materias Disponibles.
-  2. Añadir Materias y Grupo Administración
-  3. Preinscripción.
-  4. Inscripción.
-
-  
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/servicios%20eci%20horarios.png)
-
-  ### 4. **Menú de Estudiante**
-  
-  - •	Al presionar al ingresar al menú de Estudiante podremos acceder a estas diferentes opciones:
-  1. Consultar Materias disponibles.
-  2. Realizar una Preinscripción de materias.
-  3. Realizar una Inscripción de materias.
-  
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/menu%20principal%20estudiante.png)
-  
-  ### 5. **Pre-Inscripción Materias**
-  
-  - Como vemos nos va a mostrar que estamos en la sección de preinscripción de horarios, la cual será buscada por el ID, preinscribiéndolas de manera correcta.
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/inscripcion%20materia.png)
-  
-  - En cada una de ellas podremos ver las opciones de plan de horario que hemos creado anteriormente.
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/pre%20y%20inscrip.png)
-  
-  ### 6. **inscripción de Materias**
-  
-  - Tendremos un menú en donde nos indicara que nos encontramos en la opción de inscripción, en donde podremos ver la siguiente imagen:
-   ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/menu%20preinscripcion.png)
-   
-  - Al presionar el botón de INSCRIPCION, podremos visualizar nuestras opciones de horarios que hemos creado anteriormente e indicarnos cual se nos acomoda más. 
-  
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/inscripcion.png)
-  
-  - Luego, podremos ver como la materia que tenemos, la podemos inscribir y la vemos en nuestro horario.
-   ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/plan%20de%20horario%20inscrito.png)
-  
-  ### 7. **Añadir Materias y Grupos Administración**
-  
-  - •	AL presionar el botón de añadir Materias y Grupos Administración podremos agregar materias que vayamos a cursar en el periodo académico.
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/menu%20agregar%20materias.png)
-  - •	En ella encontraremos cuatro tipos de opciones:
-  
-  1. Ingrese el Id de la materia.
-  2. Ingrese el nombre de la materia.
-  3. Ingrese la descripción de la materia.
-  4. Ingrese la cantidad de créditos.
-  5. Ingrese el programa de la materia.
-  
-  - • En donde se podrá visualizar de la siguiente forma:
-  
-  
-  ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/agregar%20materia.png)
-  
-  - • AL presionar el botón de Agregar Grupo a Materia podremos agregar materias que se van a cursar en cada carrera.
-  - •	En ella encontraremos las siguientes opciones:
-  
-  1. Ingresar el id de la materia
-  2. Ingresar el salón del Grupo.
-  3. Ingrese el nombre del profesor del grupo.
-  4. Ingrese el número de cupos.
-  5. Ingrese la hora de inicio de la clase.
-  6. Ingrese la hora de fin de la clase. 
-
-- • En donde se podrá visualizar de la siguiente forma:
-
- ![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/agregar%20grupo%20materia.png)
-## Funcionalidades mas Importantes
-
-* Se contara con dos usuarios, los cuales contaran con un servicio para el manejo de los servicios, como lo podemos ver aca:
-
-    ![Funciones admin](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/servicios%20eci%20horarios.png)
 
 * El estudiante de la ECI podra:
 
@@ -168,10 +69,8 @@ Es un herramienta desarrollada por el grupo de desarrolladores “Software-Stark
 
     ![Funciones estudiante](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/menu%20principal%20estudiante.png)
 
-* El administrador de la ECI podra:
+* El administrador de la  podra:
 
-    * Consultar Materias Disponibles.
-    * Añadir Materias y Grupo Administración
    
 
     ![Funciones admin](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/funciones%20princ%20admin.png)
@@ -228,17 +127,6 @@ Para este Sprint se usuaron las siguientes historias de usuario propuestas, con 
 
 Para este Sprint 2 se usuaron las siguientes historias de usuario propuestas, con el fin de reorganizar el proyecto y avanzarlo lo mas que se pudiera:
 
-- Arquitectura Frontend
-- Arquitectura Backend
-- Despliegue Heroku
-- Avance 2 repositorio GitHub
-- Manual de uso
-- Completitud Funcional
-- Análisis Estático: Código y Pruebas
-- Realización Presentación Segunda Entrega
-
-Se presento un avance aceptable para el Sprint 1, en donde se pudo ver la definición del proyecto y un bosquejo de como serían las funciones. para el Sprint 2, se presentó un avance tardío para el proyecto, ya que no se pudo realizar una integración completa del proyecto, debido a problemas con la coordinación del trabajo y falta de trabajo por dos de sus integrantes del grupo, lo esperado para este Sprint 2 es que hubieran cosas ya funcionando, mas solo una persona trabajando, permitio que solo hubieran pocas cosas implementadas y algunas funcionalidades. El avance para este Sprint 2 es bueno y y medio completo a lo requerido para esta entrega, como lo podemos ver en el burdown chart y backlog.
-
 
 
 #### ***Burdown Chart***
@@ -254,14 +142,7 @@ Se presento un avance aceptable para el Sprint 1, en donde se pudo ver la defini
 
 Para este Sprint 3 se usuaron las siguientes historias de usuario propuestas, con el fin de comenzar a culminar el proyecto lo mas pronto posible y avanzar en lo que se podia.:
 
-- Atributos No funcionales
-- Arquitectura Backend: extendiendo cache
-- Arquitectura FrontEnd: extiendo RealTime
-- análisis estatico de codigo y Pruebas/
-
-
-Para este Sprint 3 se comenzaron a ver los rezagos de los sprint anteriores, debido a que se conto con un solo deresarrollador para implementar todo el proyecto, pues los demas integrantes decidieron entregar sus proyectos solos y se entrego una por aparte cada uno. En este proyecto se llego a la completitud funcional, asi como la realización de atributos no funcionales, arquitectura backend en cache y no se pudo completar la parte de realtime por falta de tiempo y equipo. pero se llego a completar una buena parte del proyecto. 
-
+-
 
 #### ***Burdown Chart***
 

@@ -131,11 +131,11 @@ Para este Sprint 2 se usuaron las siguientes historias de usuario propuestas, co
 
 #### ***Burdown Chart***
 
-![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Sprints/Sprint%202%20Backlog.png)
+![texto cualquiera por si no carga la imagen]()
 
 #### ***Backlog***
 
-![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Sprints/Sprint%202%20BurdownChart.png)
+![texto cualquiera por si no carga la imagen]()
 
 
 ### **SPRINT 3**
@@ -146,11 +146,11 @@ Para este Sprint 3 se usuaron las siguientes historias de usuario propuestas, co
 
 #### ***Burdown Chart***
 
-![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Sprints/Sprint%203%20burdown%20chart.png)
+![texto cualquiera por si no carga la imagen]()
 
 #### ***Backlog***
 
-![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Sprints/Sprint%203%20BackLog.png)
+![texto cualquiera por si no carga la imagen]()
 
 
 ### Wireframes  

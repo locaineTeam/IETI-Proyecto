@@ -38,7 +38,7 @@ Es un herramienta desarrollada por el grupo de desarrolladores â€œLocaine Teamâ€
  
 
 
-![texto cualquiera por si no carga la imagen](https://github.com/Software-Stark-Industries/ECIHORARIOS-FRONTEND/blob/main/Img/Manual%20de%20Usuario/objetivos%20eci%20horarios.png)
+![texto cualquiera por si no carga la imagen]()
 
 
 

@@ -1,0 +1,160 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PROYECTO-IETI",
+		"_postman_id": "2d6e4e96-1227-faeb-5c62-5e8321d4312c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllUsers",
+			"request": {
+				"url": "https://locaine.herokuapp.com/box/user",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhYTcxMjI4MTBlNzM1NDI2OWYzYzAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyNDM0ODk4LCJleHAiOjE2MzI1MjEyOTh9.dpohFDToE226QbxRK6as3ArxCRSYyZHZazemGJWtgbI",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "generateToken",
+			"request": {
+				"url": "https://locaine.herokuapp.com/v1/auth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"allan@yahoo.com\",\r\n    \"password\":\"hawai50\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"url": "https://locaine.herokuapp.com/box/user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhYTcxMjI4MTBlNzM1NDI2OWYzYzAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyNDM0ODk4LCJleHAiOjE2MzI1MjEyOTh9.dpohFDToE226QbxRK6as3ArxCRSYyZHZazemGJWtgbI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"name\": \"dummy2\",\n \"email\": \"dumm2y@yahoo.com\",\n \"lastName\": \"prueba2\",\n \"birthDate\": \"\",\n \"foto\":\"/foto33\",\n \"descripcion\":\"esto es una prueba\",\n \"password\": \"prueba1234\",\n \"genero\": \"masculino\",\n \"universidad\": \"eci\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"url": "https://locaine.herokuapp.com/box/user/614cfd61ca361452e22ef8fc",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Autorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhYTcxMjI4MTBlNzM1NDI2OWYzYzAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyNDM1Nzc1LCJleHAiOjE2MzI1MjIxNzV9.xJS8iAqVbSLkBjlwMpsWYjSkSz_WECsMLK7uL0sprGM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"url": "https://locaine.herokuapp.com/box/user/614cfcd0ca361452e22ef8fb",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhYTcxMjI4MTBlNzM1NDI2OWYzYzAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyNDM1Nzc1LCJleHAiOjE2MzI1MjIxNzV9.xJS8iAqVbSLkBjlwMpsWYjSkSz_WECsMLK7uL0sprGM",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \"name\": \"dummy3\",\n    \"email\": \"dumm3y@yahoo.com\",\n    \"lastName\": \"prueba3\",\n    \"birthDate\": null,\n    \"password\": \"g\",\n    \"genero\": \"masculino\",\n    \"universidad\": \"eci\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"request": {
+				"url": "https://locaine.herokuapp.com/v1/works",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetByUniversity",
+			"request": {
+				"url": "https://locaine.herokuapp.com/box/user/university/eci",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhYTcxMjI4MTBlNzM1NDI2OWYzYzAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyNDM1Nzc1LCJleHAiOjE2MzI1MjIxNzV9.xJS8iAqVbSLkBjlwMpsWYjSkSz_WECsMLK7uL0sprGM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetByUniversityAndGender",
+			"request": {
+				"url": "https://locaine.herokuapp.com/box/user/university/eci/masculino",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTRhYTcxMjI4MTBlNzM1NDI2OWYzYzAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMyNDM1Nzc1LCJleHAiOjE2MzI1MjIxNzV9.xJS8iAqVbSLkBjlwMpsWYjSkSz_WECsMLK7uL0sprGM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

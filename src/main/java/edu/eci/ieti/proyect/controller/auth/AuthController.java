@@ -21,6 +21,7 @@ import java.util.Date;
 
 import static edu.eci.ieti.proyect.util.Constants.CLAIMS_ROLES_KEY;
 import static edu.eci.ieti.proyect.util.Constants.TOKEN_DURATION_MINUTES;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 /**
@@ -51,6 +52,7 @@ public class AuthController {
      * @return the token dto
      * @throws UserException the user exception
      */
+	@CrossOrigin(origins="http://localhost:3000")
     @PostMapping
     public TokenDto login( @RequestBody LoginDto loginDto ) throws UserException {
 

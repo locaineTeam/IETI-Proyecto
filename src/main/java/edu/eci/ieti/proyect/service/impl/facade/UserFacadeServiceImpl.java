@@ -6,10 +6,11 @@ import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.repository.FacadeRopository;
 import edu.eci.ieti.proyect.service.UserFacadeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class UserFacadeServiceImpl implements UserFacadeService {
 
     private final FacadeRopository facadeRopository;

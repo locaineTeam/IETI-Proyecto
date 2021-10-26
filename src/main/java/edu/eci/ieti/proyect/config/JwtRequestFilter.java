@@ -82,6 +82,7 @@ public class JwtRequestFilter
                     request.setAttribute( "jwtUserId", subject );
                     request.setAttribute("jwtUserRoles", roles);
 
+
                 }
                 filterChain.doFilter( request, response );
             }

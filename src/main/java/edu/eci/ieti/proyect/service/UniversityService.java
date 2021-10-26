@@ -4,6 +4,7 @@ import edu.eci.ieti.proyect.dto.UniversityDto;
 
 import edu.eci.ieti.proyect.entity.University;
 
+import edu.eci.ieti.proyect.entity.User;
 import edu.eci.ieti.proyect.exception.UniversityException;
 
 
@@ -24,5 +25,6 @@ public interface UniversityService {
 
     University findByName(String name) throws UniversityException;
 
+    List<User> allStudents(String university);
 
 }

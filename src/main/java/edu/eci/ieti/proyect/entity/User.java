@@ -35,6 +35,7 @@ public class User {
     private String password;
     private String genero;
     private String universidad;
+    private UserFacade fachada;
     public User() {
     }
 
@@ -62,6 +63,7 @@ public class User {
         this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
         this.genero=genero;
         this.universidad=universidad;
+        this.fachada = null;
     }
 
     /**

@@ -70,6 +70,7 @@ public class User {
      * @param user the user
      */
     public User(UserDto user) {
+        this.id = UUID.randomUUID().toString();
         this.name = user.getName();
         this.email = user.getEmail();
         this.lastName = user.getLastName();

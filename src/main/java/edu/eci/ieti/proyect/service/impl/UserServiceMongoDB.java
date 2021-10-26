@@ -71,12 +71,7 @@ public class UserServiceMongoDB implements UserService {
     @Override
     public List<User> findByUniversidadGenero(String universidad, String genero)  {
         List<User> lista=userRepository.findByUniversidadAndAndGenero(universidad, genero);
-        /*List<User> listaUniversidad=new ArrayList<User>();
-        for (User u : lista){
-            if(u.getGenero().equals(genero) && u.getUniversidad().equals(universidad)){
-                listaUniversidad.add(u);
-            }
-        }*/
+
         return lista;
     }
 

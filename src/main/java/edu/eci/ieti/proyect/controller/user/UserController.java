@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 /**
  * The type User controller.
  */
@@ -88,6 +90,7 @@ public class UserController {
      * @param userDto the user dto
      * @return the response entity
      */
+	@CrossOrigin(origins="http://localhost:3000")
     @PostMapping
     public ResponseEntity<?> create( @RequestBody UserDto userDto )
     {

@@ -1,6 +1,7 @@
 package edu.eci.ieti.proyect.dto;
 
 import edu.eci.ieti.proyect.entity.document.Genders;
+import edu.eci.ieti.proyect.entity.document.Preferences;
 
 /**
  * The type User dto.
@@ -14,10 +15,13 @@ public class UserDto {
     private String foto;
     private String descripcion;
     private String password;
-    private Genders preferences;
+    private Preferences preferences;
     private Genders genero;
     private String universidad;
 
+
+    public UserDto() {
+    }
 
     /**
      * Instantiates a new User dto.
@@ -44,7 +48,7 @@ public class UserDto {
 
     }
 
-    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password, Genders preferences, Genders genero, String universidad) {
+    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password, Preferences preferences, Genders genero, String universidad) {
         this.name = name;
         this.email = email;
         this.lastName = lastName;
@@ -205,11 +209,11 @@ public class UserDto {
         this.universidad = universidad;
     }
 
-    public Genders getPreferences() {
+    public Preferences getPreferences() {
         return preferences;
     }
 
-    public void setPreferences(Genders preferences) {
+    public void setPreferences(Preferences preferences) {
         this.preferences = preferences;
     }
 }

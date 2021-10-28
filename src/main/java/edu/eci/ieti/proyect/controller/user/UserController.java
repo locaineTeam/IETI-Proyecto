@@ -4,6 +4,7 @@ package edu.eci.ieti.proyect.controller.user;
 
 import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.document.Genders;
+import edu.eci.ieti.proyect.entity.document.Preferences;
 import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import javax.annotation.security.RolesAllowed;
  * The type User controller.
  */
 @RestController
-@RequestMapping( "/box/user" )
+@RequestMapping( "/v1/user" )
 public class UserController {
 
 
@@ -135,11 +136,16 @@ public class UserController {
 
     }
 
-    @GetMapping("/genres")
-    public ResponseEntity<?> findAllGenres()
+    @GetMapping("/genders")
+    public ResponseEntity<?> findAllGenders()
     {
         return new ResponseEntity<>(Genders.values(),HttpStatus.OK);
     }
 
+    @GetMapping("/preferences")
+    public ResponseEntity<?> findAllPreferences()
+    {
+        return new ResponseEntity<>(Preferences.values(),HttpStatus.OK);
+    }
 
 }

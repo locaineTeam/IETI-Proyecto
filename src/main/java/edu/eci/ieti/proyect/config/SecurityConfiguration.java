@@ -43,8 +43,8 @@ public class SecurityConfiguration
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/v1/works" ).permitAll()
                 .antMatchers( HttpMethod.POST,"/v1/auth" ).permitAll()
-                .antMatchers( HttpMethod.POST,"/box/user" ).permitAll()
-                .antMatchers( HttpMethod.GET,"/box/user" ).permitAll()
+                .antMatchers( HttpMethod.POST,"/v1/user" ).permitAll()
+                .antMatchers( HttpMethod.GET,"/v1/user" ).permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS );
     }

@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"allan@mail.com\",\r\n    \"password\": \"123\"\r\n}",
+					"raw": "{\r\n    \"email\": \"allan@mail.com\",\r\n    \"password\": \"Hawai50\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Allan\",\r\n    \"lastName\":\"Viejo Jenkins\",\r\n    \"email\":\"allan@mail.com\",\r\n    \"birthDay\":\"1999-10-25\",\r\n    \"foto\":\"foto.jpg\",\r\n    \"descripcion\":\"Hola\",\r\n    \"password\":\"123\"\r\n}",
+					"raw": "{\r\n    \"name\":\"Allan\",\r\n    \"lastName\":\"Viejo Jenkins\",\r\n    \"email\":\"allan@mail.com\",\r\n    \"birthDay\":\"1999-10-25\",\r\n    \"foto\":\"foto.jpg\",\r\n    \"descripcion\":\"Hola\",\r\n    \"password\":\"Hawai50\",\r\n    \"genero\":\"Hombre\",\r\n    \"preferences\":\"Mujer\",\r\n    \"universidad\":\"ECI\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,14 +49,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/box/user",
+					"raw": "http://localhost:8080/v1/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"box",
+						"v1",
 						"user"
 					]
 				}
@@ -119,7 +119,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/v1/works",
+					"raw": "http://localhost:8080/v1/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -127,7 +127,69 @@
 					"port": "8080",
 					"path": [
 						"v1",
-						"works"
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "genders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTdhMjc3N2RhNzc5NTBiNjRiMjdiZTQiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjM1Mzk1NjUxLCJleHAiOjE2MzU0ODIwNTF9.c0SJF4XlafobvpRHwnLa3QM44Z58DA5WxL1SgfxEh1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/user/genders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"genders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "preferences",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTdhMjc3N2RhNzc5NTBiNjRiMjdiZTQiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjM1Mzk1NjUxLCJleHAiOjE2MzU0ODIwNTF9.c0SJF4XlafobvpRHwnLa3QM44Z58DA5WxL1SgfxEh1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/user/preferences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"preferences"
 					]
 				}
 			},
@@ -136,27 +198,17 @@
 		{
 			"name": "AllUsers",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2MTQzYTVjOTQ4NmMzMjAwYTUxYTk5NjAiLCJJRVRJX3JvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjMxODIzMzIyLCJleHAiOjE2MzE5MDk3MjJ9.IJ8gGSRPyqMRlNsUDM98K5Ws8aJZf0wotHxZBBU32_0",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/box/user",
+					"raw": "http://localhost:8080/v1/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"box",
+						"v1",
 						"user"
 					]
 				}

@@ -4,9 +4,9 @@ package edu.eci.ieti.proyect.service.impl;
 
 import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.User;
+import edu.eci.ieti.proyect.entity.document.Genders;
 import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.service.UserService;
-import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,8 +28,8 @@ public class UserServiceImpl implements UserService {
      * Instantiates a new User service.
      */
     public UserServiceImpl(){
-        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate","123","male","eci"));
-        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos","123","male","eci"));
+        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate","123", Genders.HOMBRE,"eci"));
+        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos","123", Genders.HOMBRE,"eci"));
         map.put(user1.getId(), user1);
         map.put(user2.getId(), user2);
 

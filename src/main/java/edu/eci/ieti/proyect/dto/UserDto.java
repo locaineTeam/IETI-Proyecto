@@ -1,5 +1,7 @@
 package edu.eci.ieti.proyect.dto;
 
+import edu.eci.ieti.proyect.entity.document.Genders;
+
 /**
  * The type User dto.
  */
@@ -12,7 +14,8 @@ public class UserDto {
     private String foto;
     private String descripcion;
     private String password;
-    private String genero;
+    private Genders preferences;
+    private Genders genero;
     private String universidad;
 
 
@@ -27,7 +30,7 @@ public class UserDto {
      * @param descripcion the descripcion
      * @param password    the password
      */
-    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password,String genero,String universidad){
+    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password, Genders genero, String universidad){
 
         this.name=name;
         this.email=email;
@@ -41,6 +44,18 @@ public class UserDto {
 
     }
 
+    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password, Genders preferences, Genders genero, String universidad) {
+        this.name = name;
+        this.email = email;
+        this.lastName = lastName;
+        this.birthDay = birthDay;
+        this.foto = foto;
+        this.descripcion = descripcion;
+        this.password = password;
+        this.preferences = preferences;
+        this.genero = genero;
+        this.universidad = universidad;
+    }
 
     /**
      * Gets name.
@@ -162,7 +177,7 @@ public class UserDto {
      *
      * @return the genero
      */
-    public String getGenero() {
+    public Genders getGenero() {
         return genero;
     }
     /**
@@ -170,7 +185,7 @@ public class UserDto {
      *
      * @param genero the genero
      */
-    public void setGenero(String genero) {
+    public void setGenero(Genders genero) {
         this.genero = genero;
     }
     /**
@@ -190,4 +205,11 @@ public class UserDto {
         this.universidad = universidad;
     }
 
+    public Genders getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(Genders preferences) {
+        this.preferences = preferences;
+    }
 }

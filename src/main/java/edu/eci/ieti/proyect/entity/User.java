@@ -5,16 +5,16 @@ package edu.eci.ieti.proyect.entity;
 
 
 import edu.eci.ieti.proyect.dto.UserDto;
+import edu.eci.ieti.proyect.entity.document.Genders;
 import edu.eci.ieti.proyect.entity.document.RoleEnum;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import java.security.Timestamp;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * The type User.
@@ -29,12 +29,20 @@ public class User {
     private String email;
     private String lastName;
     private String birthDate;
+    /**
+     * The Roles.
+     */
     List<RoleEnum> roles;
     private String foto;
     private String descripcion;
     private String password;
-    private String genero;
+    private Genders preferences;
+    private Genders genero;
     private String universidad;
+
+    /**
+     * Instantiates a new User.
+     */
     public User() {
     }
 
@@ -49,8 +57,10 @@ public class User {
      * @param foto        the foto
      * @param descripcion the descripcion
      * @param password    the password
+     * @param genero      the genero
+     * @param universidad the universidad
      */
-    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion, String password,String genero,String universidad) {
+    public User(String id, String name, String email, String lastName, String birthDate, String foto, String descripcion, String password, Genders genero, String universidad) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -62,6 +72,37 @@ public class User {
         this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
         this.genero=genero;
         this.universidad=universidad;
+    }
+
+    /**
+     * Instantiates a new User.
+     *
+     * @param id          the id
+     * @param name        the name
+     * @param email       the email
+     * @param lastName    the last name
+     * @param birthDate   the birth date
+     * @param roles       the roles
+     * @param foto        the foto
+     * @param descripcion the descripcion
+     * @param password    the password
+     * @param preferences the preferences
+     * @param genero      the genero
+     * @param universidad the universidad
+     */
+    public User(String id, String name, String email, String lastName, String birthDate, List<RoleEnum> roles, String foto, String descripcion, String password, Genders preferences, Genders genero, String universidad) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.roles = roles;
+        this.foto = foto;
+        this.descripcion = descripcion;
+        this.password = password;
+        this.preferences = preferences;
+        this.genero = genero;
+        this.universidad = universidad;
     }
 
     /**
@@ -174,7 +215,7 @@ public class User {
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
-  
+
     /**
      * Gets password.
      *
@@ -193,30 +234,89 @@ public class User {
         this.password = password;
     }
 
-    public String getGenero() {
+    /**
+     * Gets genero.
+     *
+     * @return the genero
+     */
+    public Genders getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    /**
+     * Sets genero.
+     *
+     * @param genero the genero
+     */
+    public void setGenero(Genders genero) {
         this.genero = genero;
     }
 
+    /**
+     * Gets universidad.
+     *
+     * @return the universidad
+     */
     public String getUniversidad() {
         return universidad;
     }
 
+    /**
+     * Sets universidad.
+     *
+     * @param universidad the universidad
+     */
     public void setUniversidad(String universidad) {
         this.universidad = universidad;
     }
 
+    /**
+     * Gets roles.
+     *
+     * @return the roles
+     */
     public List<RoleEnum> getRoles() {
         return roles;
     }
 
+    /**
+     * Sets roles.
+     *
+     * @param roles the roles
+     */
     public void setRoles(List<RoleEnum> roles) {
         this.roles = roles;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Genders getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(Genders preferences) {
+        this.preferences = preferences;
+    }
+
+    /**
+     * Update.
+     *
+     * @param userDto the user dto
+     */
     public void update (UserDto userDto){
         this.name = userDto.getName();      
         this.lastName = userDto.getLastName();
@@ -227,6 +327,7 @@ public class User {
         this.password = BCrypt.hashpw( userDto.getPassword(), BCrypt.gensalt() );
         this.genero=userDto.getGenero();
         this.universidad= userDto.getUniversidad();
+        this.preferences = userDto.getPreferences();
     }
 
    

@@ -3,7 +3,7 @@ package edu.eci.ieti.proyect.controller.user;
 
 
 import edu.eci.ieti.proyect.dto.UserDto;
-import edu.eci.ieti.proyect.entity.User;
+import edu.eci.ieti.proyect.entity.document.Genders;
 import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
-import java.util.List;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  * The type User controller.
@@ -90,7 +87,6 @@ public class UserController {
      * @param userDto the user dto
      * @return the response entity
      */
-	@CrossOrigin(origins="http://localhost:3000")
     @PostMapping
     public ResponseEntity<?> create( @RequestBody UserDto userDto )
     {
@@ -136,6 +132,12 @@ public class UserController {
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
         }
 
+    }
+
+    @GetMapping("/genres")
+    public ResponseEntity<?> findAllGenres()
+    {
+        return new ResponseEntity<>(Genders.values(),HttpStatus.OK);
     }
 
 

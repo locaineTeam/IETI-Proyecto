@@ -28,8 +28,8 @@ public class UserServiceImpl implements UserService {
      * Instantiates a new User service.
      */
     public UserServiceImpl(){
-        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate","123", Genders.HOMBRE,"eci"));
-        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos","123", Genders.HOMBRE,"eci"));
+        User user1=new User(new UserDto("Carlitos", "carlo@madri.com", "Nunez", "ayer",":)","me gusta el aguacate","123", Genders.Hombre,"eci"));
+        User user2=new User(new UserDto("Cesitar", "cesar@madri.com", "Vele","mañana",":(","buenas noches a todos","123", Genders.Hombre,"eci"));
         map.put(user1.getId(), user1);
         map.put(user2.getId(), user2);
 

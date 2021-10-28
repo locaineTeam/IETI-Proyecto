@@ -87,6 +87,7 @@ public class UserController {
      * @param userDto the user dto
      * @return the response entity
      */
+    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping
     public ResponseEntity<?> create( @RequestBody UserDto userDto )
     {

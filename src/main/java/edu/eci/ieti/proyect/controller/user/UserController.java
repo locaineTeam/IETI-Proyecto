@@ -18,6 +18,7 @@ import javax.annotation.security.RolesAllowed;
  * The type User controller.
  */
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 @RequestMapping( "/v1/user" )
 public class UserController {
 
@@ -88,7 +89,6 @@ public class UserController {
      * @param userDto the user dto
      * @return the response entity
      */
-    @CrossOrigin(origins="http://localhost:3000")
     @PostMapping
     public ResponseEntity<?> create( @RequestBody UserDto userDto )
     {

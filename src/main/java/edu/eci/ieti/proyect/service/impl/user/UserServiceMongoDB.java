@@ -1,4 +1,4 @@
-package edu.eci.ieti.proyect.service.impl;
+package edu.eci.ieti.proyect.service.impl.user;
 
 import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.User;

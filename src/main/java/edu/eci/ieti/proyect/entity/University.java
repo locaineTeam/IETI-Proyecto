@@ -14,18 +14,19 @@ public class University {
     private String id;
     private String name;
 
-    private List<User> students;
+
+    public  University(){}
 
     public University(String name, String id, List<User> students) {
         this.name = name;
         this.id = id;
-        this.students = students;
+
     }
 
     public University(UniversityDto universityDto) {
         this.id = UUID.randomUUID().toString();
         this.name = universityDto.getName();
-        this.students = null;
+
     }
 
     public String getName() {
@@ -44,13 +45,7 @@ public class University {
         this.id = id;
     }
 
-    public List<User> getStudents() {
-        return students;
-    }
 
-    public void setStudents(List<User> students) {
-        this.students = students;
-    }
 
     public void update(UniversityDto universityDto){
         this.name = universityDto.getName();

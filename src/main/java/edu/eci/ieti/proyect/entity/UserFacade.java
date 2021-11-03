@@ -16,6 +16,8 @@ public class UserFacade {
     private String photo;
     private ArrayList<String> hashTags;
 
+    public UserFacade(){}
+
     public UserFacade(String fakeName, String photo, String realUserId, ArrayList<String> hashTags) {
         this.fakeName = fakeName;
         this.photo = photo;
@@ -62,8 +64,9 @@ public class UserFacade {
         this.hashTags = hashTags;
     }
 
-    public void updateFacade(String fakeName, String photo){
+    public void updateFacade(String fakeName, String photo, ArrayList<String> hashTags){
         this.fakeName = fakeName;
         this.photo = photo;
+        this.hashTags = hashTags;
     }
 }

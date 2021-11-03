@@ -7,10 +7,14 @@ import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.repository.FacadeRopository;
 import edu.eci.ieti.proyect.service.UserFacadeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class UserFacadeServiceImpl implements UserFacadeService {
 
     private final FacadeRopository facadeRopository;
@@ -51,12 +55,12 @@ public class UserFacadeServiceImpl implements UserFacadeService {
     }
 
     @Override
-    public UserFacade update(String fakeName, String photo, String userRealId) throws UserException {
+    public UserFacade update(UserFacadeDto userFacadeDto) throws UserException {
 
         UserFacade u = null;
-        if(facadeRopository.findById(userRealId).isPresent()){
-            u = facadeRopository.findById(userRealId).get();
-            u.updateFacade(fakeName,photo);
+        if(facadeRopository.findById(userFacadeDto.getRealUserId()).isPresent()){
+            u = facadeRopository.findById(userFacadeDto.getRealUserId()).get();
+            u.updateFacade(userFacadeDto.getFakeName(), userFacadeDto.getPhoto(), userFacadeDto.getHashTags());
             facadeRopository.save(u);
 
         }

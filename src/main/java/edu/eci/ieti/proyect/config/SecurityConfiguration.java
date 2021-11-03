@@ -47,6 +47,7 @@ public class SecurityConfiguration
                 .antMatchers( HttpMethod.GET,"/v1/user" ).permitAll()
                 .antMatchers( HttpMethod.GET,"/v1/user/genders" ).permitAll()
                 .antMatchers( HttpMethod.GET,"/v1/user/preferences" ).permitAll()
+                .antMatchers( HttpMethod.GET,"/box/uni" ).permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS );
     }

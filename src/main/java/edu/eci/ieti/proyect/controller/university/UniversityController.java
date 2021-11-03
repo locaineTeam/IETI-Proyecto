@@ -17,7 +17,7 @@ import javax.annotation.security.RolesAllowed;
  * The type User controller.
  */
 @RestController
-@RequestMapping( "/box/uni" )
+@RequestMapping( "/v1/university" )
 public class UniversityController {
     private final UniversityService universityService;
     /**
@@ -57,7 +57,7 @@ public class UniversityController {
         try{
             return new ResponseEntity<>(universityService.all(), HttpStatus.OK);
         }catch(Exception e){
-            return new ResponseEntity<>("Se presenta un error", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
         }
 
     }
@@ -66,11 +66,11 @@ public class UniversityController {
      *
      * @return the response entity
      */
-    @GetMapping("/{universidad}")
-    public ResponseEntity<?> allStudents(@PathVariable String universidad)
+    @GetMapping("/{nombre}/students")
+    public ResponseEntity<?> allStudents(@PathVariable String nombre)
     {
         try{
-            return new ResponseEntity<>(universityService.allStudents(universidad), HttpStatus.OK);
+            return new ResponseEntity<>(universityService.allStudents(nombre), HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>("Se presenta un error", HttpStatus.BAD_REQUEST);
         }
@@ -99,7 +99,7 @@ public class UniversityController {
      * @param id the id
      * @return the response entity
      */
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?> findById(@PathVariable String id )
     {
         try {

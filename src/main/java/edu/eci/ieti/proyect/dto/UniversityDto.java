@@ -6,6 +6,10 @@ public class UniversityDto {
 
     private String name;
 
+    public UniversityDto() {
+
+
+    }
 
     public UniversityDto(String name) {
         this.name = name;

@@ -7,6 +7,7 @@ import edu.eci.ieti.proyect.entity.User;
 import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface UserFacadeService {
@@ -19,7 +20,7 @@ public interface UserFacadeService {
 
     boolean deleteByRealId(String id ) throws UserException;
 
-    UserFacade update( String fakeName, String photo, String userRealId ) throws UserException;
+    UserFacade update( UserFacadeDto userFacadeDto) throws UserException;
 
 
 

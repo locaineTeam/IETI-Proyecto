@@ -11,11 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.util.ArrayList;
+
 /**
  * The type User controller.
  */
 @RestController
-@RequestMapping( "/box/userfa" )
+@RequestMapping( "/v1/userFacade" )
 public class UserFacadeController {
 
     private final UserFacadeService userFacadeService;
@@ -80,16 +82,15 @@ public class UserFacadeController {
     /**
      * Update response entity.
      *
-     * @param fakeName the user fakeName
-     * @param photo      the photo
-     * @param userRealId      the userRealId
+
+     * @param id      the userRealId
      * @return the response entity
      */
     @PutMapping( "/{id}" )
-    public ResponseEntity<?> update(@PathVariable String fakeName,@PathVariable String photo,@PathVariable String userRealId )
+    public ResponseEntity<?> update(@PathVariable String id,@RequestBody UserFacadeDto userFacadeDto)
     {
         try {
-            return new ResponseEntity<>(userFacadeService.update(fakeName,photo,userRealId),HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(userFacadeService.update(userFacadeDto),HttpStatus.NO_CONTENT);
         } catch (UserException e) {
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
         }

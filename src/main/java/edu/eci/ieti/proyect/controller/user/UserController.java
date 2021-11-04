@@ -68,6 +68,25 @@ public class UserController {
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
         }
     }
+
+    /**
+     * Find by id response entity.
+     *
+     * @param email the email
+     * @return the response entity
+     */
+    @GetMapping("/email/{email}")
+    public ResponseEntity<?> findByEmail(@PathVariable String email )
+    {
+        try {
+            return new ResponseEntity<>(userService.findByEmail(email),HttpStatus.OK);
+        } catch (UserException e) {
+
+            return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
+        }
+    }
+
+
     @GetMapping("/university/{universidad}/{genero}")
     public ResponseEntity<?> findByUniGen(@PathVariable String universidad,@PathVariable String genero )
     {
@@ -111,7 +130,7 @@ public class UserController {
     public ResponseEntity<?> update(@RequestBody UserDto userDto, @PathVariable String id )
     {
         try {
-            return new ResponseEntity<>(userService.update(userDto,id),HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(userService.update(userDto,id),HttpStatus.OK);
         } catch (UserException e) {
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
         }

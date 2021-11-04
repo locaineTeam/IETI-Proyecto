@@ -17,6 +17,7 @@ import javax.annotation.security.RolesAllowed;
  * The type User controller.
  */
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 @RequestMapping( "/v1/university" )
 public class UniversityController {
     private final UniversityService universityService;

@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * The type User controller.
  */
 @RestController
+@CrossOrigin(origins="http://localhost:3000")
 @RequestMapping( "/v1/userFacade" )
 public class UserFacadeController {
 

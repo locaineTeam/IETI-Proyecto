@@ -326,7 +326,9 @@ public class User {
         this.descripcion = userDto.getDescripcion();
         this.email = userDto.getEmail();
         this.foto = userDto.getFoto();
-        this.password = BCrypt.hashpw( userDto.getPassword(), BCrypt.gensalt() );
+        if(userDto.getPassword()!=null && !userDto.getPassword().equals("")) {
+            this.password = BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt());
+        }
         this.genero=userDto.getGenero();
         this.universidad= userDto.getUniversidad();
         this.preferences = userDto.getPreferences();

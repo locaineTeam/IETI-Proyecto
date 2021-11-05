@@ -1,7 +1,7 @@
 # ***Locaine Team***   
 ![logo](https://github.com/locaineTeam/IETI-Proyecto/blob/main/fire%20box%20logo.png "FireBox Logo")
 
-## ***Fire Box***
+## ***FireBox***
 
   - **Periodo Académico**: 2021-2
   - **Curso**:  Emprenmiento e Inovación TI

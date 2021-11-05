@@ -1,4 +1,5 @@
-# ***Locaine Team***
+# ***Locaine Team***   
+![logo](https://github.com/locaineTeam/IETI-Proyecto/blob/main/fire%20box%20logo.png "FireBox Logo")
 
 ## ***Fire Box***
 

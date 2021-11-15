@@ -18,12 +18,12 @@ public class StompController {
     @Autowired
     DataHashMap dataHashMap;
     
-    @MessageMapping("/university.{name}")
+    @MessageMapping("/university/{name}")
     public void handleuniversity(UserDataDto user, @DestinationVariable String name){
         dataHashMap.addUser(name, user);
         Gson gson = new Gson();
         String json = gson.toJson(dataHashMap.getList(name));
-        msgt.convertAndSend("/topic/university."+name, json);
+        msgt.convertAndSend("/topic/university/"+name, json);
     }
     
 }

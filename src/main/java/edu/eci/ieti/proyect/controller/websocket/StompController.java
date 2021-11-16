@@ -26,4 +26,19 @@ public class StompController {
         msgt.convertAndSend("/topic/university/"+name, json);
     }
     
+    @MessageMapping("/disconnet/{name}")
+    public void handleDisconnect(UserDataDto user, @DestinationVariable String name){
+        dataHashMap.deleteUser(name, user);
+        Gson gson = new Gson();
+        String json = gson.toJson(dataHashMap.getList(name));
+        msgt.convertAndSend("/topic/university/"+name, json);
+    }
+    
+    @MessageMapping("/university/chat/{name}")
+    public void handleChatGroup(String msg, @DestinationVariable String name){
+        dataHashMap.addMsg(name, msg);
+        Gson gson = new Gson();
+        String json = gson.toJson(dataHashMap.getMsg(name));
+        msgt.convertAndSend("/topic/university/chat/"+name, json);
+    }
 }

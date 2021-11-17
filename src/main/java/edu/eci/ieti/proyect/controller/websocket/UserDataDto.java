@@ -35,5 +35,20 @@ public class UserDataDto {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        
+        if(obj instanceof UserDataDto){
+            UserDataDto user = (UserDataDto) obj;
+            if(this.id.equals(user.getId())){
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
     
 }

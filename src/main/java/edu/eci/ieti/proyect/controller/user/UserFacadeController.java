@@ -41,6 +41,7 @@ public class UserFacadeController {
     public ResponseEntity<?> create(@RequestBody UserFacadeDto UserFacadto )
     {
         try {
+
             return new ResponseEntity<>(userFacadeService.create(UserFacadto),HttpStatus.CREATED);
         } catch (UserException e) {
             return new ResponseEntity<>(e,HttpStatus.FORBIDDEN);

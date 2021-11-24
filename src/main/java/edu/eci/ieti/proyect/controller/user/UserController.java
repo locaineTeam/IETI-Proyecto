@@ -112,6 +112,7 @@ public class UserController {
     public ResponseEntity<?> create( @RequestBody UserDto userDto )
     {
         try {
+            System.out.println("Ole hpta");
             return new ResponseEntity<>(userService.create(userDto),HttpStatus.CREATED);
         } catch (UserException e) {
             return new ResponseEntity<>(e,HttpStatus.FORBIDDEN);

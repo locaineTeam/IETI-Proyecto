@@ -2,27 +2,38 @@ package edu.eci.ieti.proyect.service.impl.user;
 
 import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.User;
+import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
+import edu.eci.ieti.proyect.repository.FacadeRopository;
 import edu.eci.ieti.proyect.repository.UserRepository;
 import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserServiceMongoDB implements UserService {
     private final UserRepository userRepository;
+    private final FacadeRopository facadeRopository;
 
-    public UserServiceMongoDB( @Autowired UserRepository userRepository )
+
+    public UserServiceMongoDB( @Autowired UserRepository userRepository,@Autowired FacadeRopository facadeRopository )
     {
+        this.facadeRopository=facadeRopository;
         this.userRepository = userRepository;
     }
     @Override
     public User create(UserDto user) throws UserException {
-        return userRepository.save(new User(user));
+        User user1 = new User(user);
+        UserFacade u = new UserFacade("FakeNameStandar", "/photoStandar.jpg",user1.getId(),new ArrayList<String>(Arrays.asList("#FireBox")));
+        facadeRopository.save(u);
+        System.out.println("POr aqui");
+        return userRepository.save(user1);
+
     }
 
     @Override

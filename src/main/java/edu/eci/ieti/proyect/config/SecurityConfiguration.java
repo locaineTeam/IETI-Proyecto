@@ -50,6 +50,7 @@ public class SecurityConfiguration
                 .antMatchers( HttpMethod.GET,"/v1/user/genders" ).permitAll()
                 .antMatchers( HttpMethod.GET,"/v1/user/preferences" ).permitAll()
                 .antMatchers( HttpMethod.GET,"/v1/userFacade/*" ).permitAll()
+                .antMatchers( HttpMethod.GET,"/v1/university" ).permitAll()
 				.antMatchers("/stompendpoint/**").permitAll()
 				.antMatchers("/university/**").permitAll()
 

@@ -31,7 +31,7 @@ public class UserServiceMongoDB implements UserService {
         User user1 = new User(user);
         UserFacade u = new UserFacade("FakeNameStandar", "/photoStandar.jpg",user1.getId(),new ArrayList<String>(Arrays.asList("#FireBox")));
         facadeRopository.save(u);
-        System.out.println("POr aqui");
+
         return userRepository.save(user1);
 
     }

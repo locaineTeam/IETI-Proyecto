@@ -5,11 +5,13 @@ public class UserDataDto {
     private String id;
     private String name;
     private String lastName;
+    private String message;
 
-    public UserDataDto(String id, String name, String lastName) {
+    public UserDataDto(String id, String name, String lastName, String message) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
+        this.message = message;
     }
 
     public String getId() {
@@ -34,6 +36,14 @@ public class UserDataDto {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override

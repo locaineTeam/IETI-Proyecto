@@ -15,30 +15,10 @@ public class StompController {
     @Autowired
     SimpMessagingTemplate msgt;
     
-    @Autowired
-    DataHashMap dataHashMap;
-    
-    @MessageMapping("/university/{name}")
-    public void handleuniversity(UserDataDto user, @DestinationVariable String name){
-        dataHashMap.addUser(name, user);
-        Gson gson = new Gson();
-        String json = gson.toJson(dataHashMap.getList(name));
-        msgt.convertAndSend("/topic/university/"+name, json);
-    }
-    
-    @MessageMapping("/disconnet/{name}")
-    public void handleDisconnect(UserDataDto user, @DestinationVariable String name){
-        dataHashMap.deleteUser(name, user);
-        Gson gson = new Gson();
-        String json = gson.toJson(dataHashMap.getList(name));
-        msgt.convertAndSend("/topic/university/"+name, json);
-    }
-    
     @MessageMapping("/university/chat/{name}")
-    public void handleChatGroup(String msg, @DestinationVariable String name){
-        dataHashMap.addMsg(name, msg);
+    public void handleChatGroup(UserDataDto user, @DestinationVariable String name){
         Gson gson = new Gson();
-        String json = gson.toJson(dataHashMap.getMsg(name));
+        String json = gson.toJson(user);
         msgt.convertAndSend("/topic/university/chat/"+name, json);
     }
 }

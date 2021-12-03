@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
-import java.util.ArrayList;
 
 /**
  * The type User controller.
@@ -34,15 +33,15 @@ public class UserFacadeController {
     /**
      * Create response entity.
      *
-     * @param UserFacadto the userFacade dto
+     * @param UserFacadeDto the userFacade dto
      * @return the response entity
      */
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody UserFacadeDto UserFacadto )
+    public ResponseEntity<?> create(@RequestBody UserFacadeDto UserFacadeDto )
     {
         try {
 
-            return new ResponseEntity<>(userFacadeService.create(UserFacadto),HttpStatus.CREATED);
+            return new ResponseEntity<>(userFacadeService.create(UserFacadeDto),HttpStatus.CREATED);
         } catch (UserException e) {
             return new ResponseEntity<>(e,HttpStatus.FORBIDDEN);
 
@@ -92,7 +91,7 @@ public class UserFacadeController {
     public ResponseEntity<?> update(@PathVariable String id,@RequestBody UserFacadeDto userFacadeDto)
     {
         try {
-            return new ResponseEntity<>(userFacadeService.update(userFacadeDto),HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(userFacadeService.update(id,userFacadeDto),HttpStatus.NO_CONTENT);
         } catch (UserException e) {
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
         }

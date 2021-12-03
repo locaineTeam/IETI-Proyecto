@@ -9,7 +9,6 @@ import edu.eci.ieti.proyect.service.UserFacadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,24 +45,24 @@ public class UserFacadeServiceImpl implements UserFacadeService {
 
     @Override
     public boolean deleteByRealId(String id) throws UserException {
-        boolean flag = false;
         if(facadeRopository.existsById(id)){
             facadeRopository.deleteById(id);
             return true;
         }
-        return flag;
+        return false;
     }
 
     @Override
-    public UserFacade update(UserFacadeDto userFacadeDto) throws UserException {
+    public UserFacade update(String id, UserFacadeDto userFacadeDto) throws UserException {
 
-        UserFacade u = null;
-        if(facadeRopository.findById(userFacadeDto.getRealUserId()).isPresent()){
-            u = facadeRopository.findById(userFacadeDto.getRealUserId()).get();
-            u.updateFacade(userFacadeDto.getFakeName(), userFacadeDto.getPhoto(), userFacadeDto.getHashTags());
-            facadeRopository.save(u);
+        Optional<UserFacade> u = facadeRopository.findById(id);
+        UserFacade userFacade = null;
+        if(u.isPresent()){
+            userFacade = u.get();
+            userFacade.updateFacade(userFacadeDto.getFakeName(), userFacadeDto.getPhoto(), userFacadeDto.getHashTags());
+            facadeRopository.save(userFacade);
 
         }
-        return u;
+        return userFacade;
     }
 }

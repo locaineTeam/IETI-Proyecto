@@ -3,6 +3,8 @@ package edu.eci.ieti.proyect.dto;
 import edu.eci.ieti.proyect.entity.document.Genders;
 import edu.eci.ieti.proyect.entity.document.Preferences;
 
+import java.util.HashSet;
+
 /**
  * The type User dto.
  */
@@ -19,7 +21,14 @@ public class UserDto {
     private Genders genero;
     private String universidad;
 
+    //PRUEBA DATOS MATCH
+    private HashSet<String> userRequests;
+    private HashSet<String> userAccepts;
 
+
+    /**
+     * Instantiates a new User dto.
+     */
     public UserDto() {
     }
 
@@ -33,6 +42,8 @@ public class UserDto {
      * @param foto        the foto
      * @param descripcion the descripcion
      * @param password    the password
+     * @param genero      the genero
+     * @param universidad the universidad
      */
     public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password, Genders genero, String universidad){
 
@@ -46,19 +57,10 @@ public class UserDto {
         this.genero=genero;
         this.universidad=universidad;
 
-    }
+        //Match
+        this.userRequests = new HashSet<>();
+        this.userAccepts = new HashSet<>();
 
-    public UserDto(String name, String email, String lastName, String birthDay, String foto, String descripcion, String password, Preferences preferences, Genders genero, String universidad) {
-        this.name = name;
-        this.email = email;
-        this.lastName = lastName;
-        this.birthDay = birthDay;
-        this.foto = foto;
-        this.descripcion = descripcion;
-        this.password = password;
-        this.preferences = preferences;
-        this.genero = genero;
-        this.universidad = universidad;
     }
 
     /**
@@ -168,6 +170,7 @@ public class UserDto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     /**
      * Gets password.
      *
@@ -176,6 +179,7 @@ public class UserDto {
     public String getPassword() {
         return password;
     }
+
     /**
      * Gets Genero.
      *
@@ -184,6 +188,7 @@ public class UserDto {
     public Genders getGenero() {
         return genero;
     }
+
     /**
      * Sets Genero.
      *
@@ -192,6 +197,7 @@ public class UserDto {
     public void setGenero(Genders genero) {
         this.genero = genero;
     }
+
     /**
      * Gets universidad.
      *
@@ -200,6 +206,7 @@ public class UserDto {
     public String getUniversidad() {
         return universidad;
     }
+
     /**
      * Gets universidad.
      *
@@ -209,11 +216,103 @@ public class UserDto {
         this.universidad = universidad;
     }
 
+    /**
+     * Gets preferences.
+     *
+     * @return the preferences
+     */
     public Preferences getPreferences() {
         return preferences;
     }
 
+    /**
+     * Sets preferences.
+     *
+     * @param preferences the preferences
+     */
     public void setPreferences(Preferences preferences) {
         this.preferences = preferences;
     }
+
+    /**
+     * Sets password.
+     *
+     * @param password the password
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * Gets all request.
+     *
+     * @return the all request
+     */
+    public HashSet<String> getUserRequests() {
+        return userRequests;
+    }
+
+    /**
+     * Sets all request.
+     *
+     * @param userRequests the all request
+     */
+    public void setUserRequests(HashSet<String> userRequests) {
+        this.userRequests = userRequests;
+    }
+
+    /**
+     * Gets all accepts.
+     *
+     * @return the all accepts
+     */
+    public HashSet<String> getUserAccepts() {
+        return userAccepts;
+    }
+
+    /**
+     * Sets all accepts.
+     *
+     * @param userAccepts the all accepts
+     */
+    public void setUserAccepts(HashSet<String> userAccepts) {
+        this.userAccepts = userAccepts;
+    }
+
+    /**
+     * Add user requests boolean.
+     *
+     * @param userId the user id
+     * @return the boolean
+     */
+    public boolean addUserRequests(String userId){
+        return this.userRequests.add(userId);
+    }
+
+    /**
+     * Add user accepts boolean.
+     *
+     * @param userId the user id
+     * @return the boolean
+     */
+    public boolean addUserAccepts(String userId){
+        boolean flag = this.userRequests.contains(userId);
+        if(flag){
+            this.userRequests.remove(userId);
+            flag = this.userAccepts.add(userId);
+        }
+        return flag;
+    }
+
+    /**
+     * Delete user requests boolean.
+     *
+     * @param userId the user id
+     * @return the boolean
+     */
+    public boolean deleteUserRequests(String userId){
+        return this.userRequests.remove(userId);
+    }
+
+
 }

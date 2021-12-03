@@ -30,10 +30,8 @@ public class UserServiceMongoDB implements UserService {
     public User create(UserDto user) throws UserException {
         User user1 = new User(user);
         user1 = userRepository.save(user1);
-        System.out.println("USER ID: "+user1.getId());
         UserFacade u = new UserFacade("FakeNameStandar", "/photoStandar.jpg",user1.getId(),new ArrayList<String>(Arrays.asList("#FireBox")));
         facadeRopository.save(u);
-        System.out.println("USER FACADE ID: "+u.getRealUserId());
 
         return user1;
 

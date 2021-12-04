@@ -168,4 +168,71 @@ public class UserController {
         return new ResponseEntity<>(Preferences.values(),HttpStatus.OK);
     }
 
+
+    //Match Endpoints
+
+    @GetMapping("/{userId}/request")
+    public ResponseEntity<?> findAllRequest(@PathVariable String userId){
+        try{
+            return new ResponseEntity<>(userService.getAllRequestByUserId(userId),HttpStatus.OK);
+        } catch (UserException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/{userId}/friends")
+    public ResponseEntity<?> findAllFriends(@PathVariable String userId){
+        try{
+            return new ResponseEntity<>(userService.getAllFriendsByUserId(userId),HttpStatus.OK);
+        } catch (UserException e) {
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    @PostMapping("/{userId}/request")
+    public ResponseEntity<?> addNewRequest(@PathVariable String userId, @RequestBody String userIdToAdd){
+        try{
+            userService.addUserRequest(userId, userIdToAdd);
+            return new ResponseEntity<>("User Added to Request",HttpStatus.CREATED);
+        }catch(UserException e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/{userId}/friends")
+    public ResponseEntity<?> addNewFriend(@PathVariable String userId, @RequestBody String userIdToAdd){
+        try{
+            userService.addUserFriends(userId, userIdToAdd);
+            return new ResponseEntity<>("User Added to Friends",HttpStatus.CREATED);
+        }catch(UserException e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{userId}/request/{userToDelete}")
+    public ResponseEntity<?> delRequest(@PathVariable String userId, @PathVariable String userToDelete){
+        try{
+            userService.deleteUserRequest(userId, userToDelete);
+            return new ResponseEntity<>("User Deleted from Request",HttpStatus.CREATED);
+        }catch(UserException e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @DeleteMapping("/{userId}/friends/{userToDelete}")
+    public ResponseEntity<?> delFriend(@PathVariable String userId, @PathVariable String userToDelete){
+        try{
+            userService.deleteUserFriend(userId, userToDelete);
+            return new ResponseEntity<>("User Deleted from Friends",HttpStatus.CREATED);
+        }catch(UserException e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+
+    //End Match Endpoints
+
+
 }

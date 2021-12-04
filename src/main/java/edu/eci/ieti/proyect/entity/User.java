@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -26,9 +27,9 @@ public class User {
     @Id
     private String id;
     private String name;
+    private String lastName;
     @Indexed(unique=true)
     private String email;
-    private String lastName;
     private String birthDate;
     /**
      * The Roles.
@@ -40,6 +41,10 @@ public class User {
     private Preferences preferences;
     private Genders genero;
     private String universidad;
+
+    //PRUEBA DATOS MATCH
+    private HashSet<String> userRequests;
+    private HashSet<String> userFriends;
 
     /**
      * Instantiates a new User.
@@ -73,6 +78,10 @@ public class User {
         this.password = BCrypt.hashpw( password, BCrypt.gensalt() );
         this.genero=genero;
         this.universidad=universidad;
+
+        //Match
+        this.userRequests = new HashSet<>();
+        this.userFriends = new HashSet<>();
     }
 
     /**
@@ -104,6 +113,10 @@ public class User {
         this.preferences = preferences;
         this.genero = genero;
         this.universidad = universidad;
+
+        //Match
+        this.userRequests = new HashSet<>();
+        this.userFriends = new HashSet<>();
     }
 
     /**
@@ -123,6 +136,10 @@ public class User {
         this.genero= user.getGenero();
         this.universidad=user.getUniversidad();
         this.preferences=user.getPreferences();
+
+        //Match
+        this.userRequests = new HashSet<>();
+        this.userFriends = new HashSet<>();
 
     }
 
@@ -290,28 +307,84 @@ public class User {
         this.roles = roles;
     }
 
+    /**
+     * Gets foto.
+     *
+     * @return the foto
+     */
     public String getFoto() {
         return foto;
     }
 
+    /**
+     * Sets foto.
+     *
+     * @param foto the foto
+     */
     public void setFoto(String foto) {
         this.foto = foto;
     }
 
+    /**
+     * Gets descripcion.
+     *
+     * @return the descripcion
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * Sets descripcion.
+     *
+     * @param descripcion the descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * Gets preferences.
+     *
+     * @return the preferences
+     */
     public Preferences getPreferences() {
         return preferences;
     }
 
+    /**
+     * Sets preferences.
+     *
+     * @param preferences the preferences
+     */
     public void setPreferences(Preferences preferences) {
         this.preferences = preferences;
+    }
+
+    /**
+     * Gets user requests.
+     *
+     * @return the user requests
+     */
+    public HashSet<String> getUserRequests() {
+        return userRequests;
+    }
+
+    /**
+     * Gets user accepts.
+     *
+     * @return the user accepts
+     */
+    public HashSet<String> getUserFriends() {
+        return userFriends;
+    }
+
+    public void setUserRequests(HashSet<String> userRequests) {
+        this.userRequests = userRequests;
+    }
+
+    public void setUserFriends(HashSet<String> userFriends) {
+        this.userFriends = userFriends;
     }
 
     /**
@@ -332,6 +405,8 @@ public class User {
         this.genero=userDto.getGenero();
         this.universidad= userDto.getUniversidad();
         this.preferences = userDto.getPreferences();
+        this.userFriends = userDto.getUserFriends();
+        this.userRequests = userDto.getUserRequests();
     }
 
    

@@ -1,13 +1,11 @@
 
 package edu.eci.ieti.proyect.service;
 
-import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.dto.UserFacadeDto;
-import edu.eci.ieti.proyect.entity.User;
 import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
+import edu.eci.ieti.proyect.exception.UserFacadeException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface UserFacadeService {
@@ -20,7 +18,7 @@ public interface UserFacadeService {
 
     boolean deleteByRealId(String id ) throws UserException;
 
-    UserFacade update( UserFacadeDto userFacadeDto) throws UserException;
+    UserFacade update(String id, UserFacadeDto userFacadeDto) throws UserException;
 
 
 

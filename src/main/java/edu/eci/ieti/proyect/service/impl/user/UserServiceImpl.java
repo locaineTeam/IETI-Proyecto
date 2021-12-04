@@ -121,7 +121,34 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public void addUserRequest(String userId, String userIdToAdd) throws UserException {
 
+    }
+
+    @Override
+    public void deleteUserRequest(String userId, String userIdToDelete) throws UserException {
+
+    }
+
+    @Override
+    public void deleteUserFriend(String userId, String userIdToDelete) throws UserException {
+    }
+
+    @Override
+    public void addUserFriends(String userId, String userIdToAdd) throws UserException {
+
+    }
+
+    @Override
+    public HashSet<String> getAllRequestByUserId(String userId) throws UserException {
+        return null;
+    }
+
+    @Override
+    public HashSet<String> getAllFriendsByUserId(String userId) throws UserException {
+        return null;
+    }
 
 
 }

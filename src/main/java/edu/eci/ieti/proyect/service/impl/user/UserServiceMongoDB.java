@@ -4,26 +4,23 @@ import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.User;
 import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
-import edu.eci.ieti.proyect.repository.FacadeRopository;
+import edu.eci.ieti.proyect.repository.FacadeRepository;
 import edu.eci.ieti.proyect.repository.UserRepository;
 import edu.eci.ieti.proyect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserServiceMongoDB implements UserService {
     private final UserRepository userRepository;
-    private final FacadeRopository facadeRopository;
+    private final FacadeRepository facadeRepository;
 
 
-    public UserServiceMongoDB( @Autowired UserRepository userRepository,@Autowired FacadeRopository facadeRopository )
+    public UserServiceMongoDB( @Autowired UserRepository userRepository,@Autowired FacadeRepository facadeRepository)
     {
-        this.facadeRopository=facadeRopository;
+        this.facadeRepository = facadeRepository;
         this.userRepository = userRepository;
     }
     @Override
@@ -31,7 +28,7 @@ public class UserServiceMongoDB implements UserService {
         User user1 = new User(user);
         user1 = userRepository.save(user1);
         UserFacade u = new UserFacade("FakeNameStandar", "/photoStandar.jpg",user1.getId(),new ArrayList<String>(Arrays.asList("#FireBox")));
-        facadeRopository.save(u);
+        facadeRepository.save(u);
 
         return user1;
 
@@ -97,6 +94,121 @@ public class UserServiceMongoDB implements UserService {
         return lista;
     }
 
+    //Match Services
+
+    @Override
+    public void addUserRequest(String userId, String userIdToAdd) throws UserException {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if(!optionalUser.isPresent() || !userRepository.findById(userIdToAdd).isPresent()){
+            throw new UserException(UserException.USER_NOT_FOUND);
+        }
+        User user = optionalUser.get();
+
+        //Verify request is by a Friend
+        if(user.getUserFriends().contains(userIdToAdd)){
+            throw new UserException(UserException.USER_IS_ALREADY_FRIEND);
+        }
+
+        //Save actual Request List into DB
+        user.getUserRequests().add(userIdToAdd);
+        userRepository.save(user);
+    }
+
+
+    @Override
+    public void deleteUserRequest(String userId, String userIdToDelete) throws UserException {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if(!optionalUser.isPresent() || !userRepository.findById(userIdToDelete).isPresent()) {
+            throw new UserException(UserException.USER_NOT_FOUND);
+        }
+
+        //Get user from Optional
+        User user = optionalUser.get();
+
+        //Remove userToDelete from UserRequest
+        user.getUserRequests().remove(userIdToDelete);
+
+        //Save actual Request List into DB
+        userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUserFriend(String userId, String userIdToDelete) throws UserException {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        Optional<User> optionalUserToDelete = userRepository.findById(userIdToDelete);
+        if(!optionalUser.isPresent() || !optionalUserToDelete.isPresent()) {
+            throw new UserException(UserException.USER_NOT_FOUND);
+        }
+
+        //Get user from Optional
+        User user = optionalUser.get();
+        User userToDelete =  optionalUserToDelete.get();
+
+        //remove both users to each other
+        user.getUserFriends().remove(userIdToDelete);
+        userToDelete.getUserFriends().remove(userId);
+
+        //Save actual Request List and Friends List into DB
+        userRepository.save(user);
+        userRepository.save(userToDelete);
+    }
+
+    @Override
+    public void addUserFriends(String userId, String userIdToAdd) throws UserException {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        Optional<User> optionalUserToAdd = userRepository.findById(userIdToAdd);
+        if(!optionalUser.isPresent() || !optionalUserToAdd.isPresent()) {
+            throw new UserException(UserException.USER_NOT_FOUND);
+        }
+
+        //Get user from Optional
+        User user = optionalUser.get();
+
+        //Verify if is already friend
+        if(user.getUserFriends().contains(userIdToAdd)){
+            throw new UserException(UserException.USER_IS_ALREADY_FRIEND);
+        }
+
+        //Verify if a request was sent before try to add as friend
+        if(!user.getUserRequests().contains(userIdToAdd)){
+            throw new UserException(UserException.USER_NO_IN_REQUEST);
+        }
+        User userToAdd =  optionalUserToAdd.get();
+
+        //Remove users from UserRequest in case both send the request
+        user.getUserRequests().remove(userIdToAdd);
+        userToAdd.getUserRequests().remove(userId);
+
+        //Add both users to each other
+        user.getUserFriends().add(userIdToAdd);
+        userToAdd.getUserFriends().add(userId);
+
+        //Save actual Request List and Friends List into DB
+        userRepository.save(user);
+        userRepository.save(userToAdd);
+
+    }
+
+    @Override
+    public HashSet<String> getAllRequestByUserId(String userId) throws UserException {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if(!optionalUser.isPresent()){
+            throw new UserException(UserException.USER_NOT_FOUND);
+        }
+        return optionalUser.get().getUserRequests();
+    }
+
+    @Override
+    public HashSet<String> getAllFriendsByUserId(String userId) throws UserException {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if(!optionalUser.isPresent()){
+            throw new UserException(UserException.USER_NOT_FOUND);
+        }
+        return optionalUser.get().getUserFriends();
+    }
+
+
+    //End Match Services
 
 
 }

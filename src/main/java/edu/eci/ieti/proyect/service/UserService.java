@@ -7,6 +7,7 @@ import edu.eci.ieti.proyect.dto.UserDto;
 import edu.eci.ieti.proyect.entity.User;
 import edu.eci.ieti.proyect.exception.UserException;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -71,5 +72,18 @@ public interface UserService {
     List<User>findByUniversidadGenero(String universidad,String genero) ;
 
     List<User> findByUniversidad(String universidad);
+
+
+    void addUserRequest(String userId, String userIdToAdd) throws UserException;
+
+    void deleteUserRequest(String userId, String userIdToDelete) throws UserException;
+
+    void deleteUserFriend(String userId, String userIdToDelete) throws UserException;
+
+    void addUserFriends(String userId, String userIdToAdd) throws UserException;
+
+    HashSet<String> getAllRequestByUserId(String userId) throws UserException;
+
+    HashSet<String> getAllFriendsByUserId(String userId) throws UserException;
 
 }

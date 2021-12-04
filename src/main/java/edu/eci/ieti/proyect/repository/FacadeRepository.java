@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface FacadeRopository extends MongoRepository<UserFacade,String> {
+public interface FacadeRepository extends MongoRepository<UserFacade,String> {
 
 
 

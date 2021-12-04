@@ -11,8 +11,8 @@ import java.util.HashSet;
 public class UserDto {
   
     private String name;
-    private String email;
     private String lastName;
+    private String email;
     private String birthDay;
     private String foto;
     private String descripcion;
@@ -23,7 +23,7 @@ public class UserDto {
 
     //PRUEBA DATOS MATCH
     private HashSet<String> userRequests;
-    private HashSet<String> userAccepts;
+    private HashSet<String> userFriends;
 
 
     /**
@@ -59,7 +59,7 @@ public class UserDto {
 
         //Match
         this.userRequests = new HashSet<>();
-        this.userAccepts = new HashSet<>();
+        this.userFriends = new HashSet<>();
 
     }
 
@@ -266,17 +266,17 @@ public class UserDto {
      *
      * @return the all accepts
      */
-    public HashSet<String> getUserAccepts() {
-        return userAccepts;
+    public HashSet<String> getUserFriends() {
+        return userFriends;
     }
 
     /**
      * Sets all accepts.
      *
-     * @param userAccepts the all accepts
+     * @param userFriends the all accepts
      */
-    public void setUserAccepts(HashSet<String> userAccepts) {
-        this.userAccepts = userAccepts;
+    public void setUserFriends(HashSet<String> userFriends) {
+        this.userFriends = userFriends;
     }
 
     /**
@@ -287,21 +287,6 @@ public class UserDto {
      */
     public boolean addUserRequests(String userId){
         return this.userRequests.add(userId);
-    }
-
-    /**
-     * Add user accepts boolean.
-     *
-     * @param userId the user id
-     * @return the boolean
-     */
-    public boolean addUserAccepts(String userId){
-        boolean flag = this.userRequests.contains(userId);
-        if(flag){
-            this.userRequests.remove(userId);
-            flag = this.userAccepts.add(userId);
-        }
-        return flag;
     }
 
     /**

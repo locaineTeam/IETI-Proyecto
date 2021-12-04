@@ -4,7 +4,8 @@ package edu.eci.ieti.proyect.service.impl.facade;
 import edu.eci.ieti.proyect.dto.UserFacadeDto;
 import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
-import edu.eci.ieti.proyect.repository.FacadeRopository;
+import edu.eci.ieti.proyect.exception.UserFacadeException;
+import edu.eci.ieti.proyect.repository.FacadeRepository;
 import edu.eci.ieti.proyect.service.UserFacadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,21 +17,21 @@ import java.util.Optional;
 @Service
 public class UserFacadeServiceImpl implements UserFacadeService {
 
-    private final FacadeRopository facadeRopository;
+    private final FacadeRepository facadeRepository;
 
-    public UserFacadeServiceImpl( @Autowired FacadeRopository facadeRopository )
+    public UserFacadeServiceImpl( @Autowired FacadeRepository facadeRepository)
     {
-        this.facadeRopository = facadeRopository;
+        this.facadeRepository = facadeRepository;
     }
 
     @Override
     public UserFacade create(UserFacadeDto userFacadeDto) throws UserException {
-        return facadeRopository.save(new UserFacade(userFacadeDto));
+        return facadeRepository.save(new UserFacade(userFacadeDto));
     }
 
     @Override
     public UserFacade findByRealId(String id) throws UserException {
-        Optional<UserFacade> optionalUserFacade = facadeRopository.findById(id);
+        Optional<UserFacade> optionalUserFacade = facadeRepository.findById(id);
         if (optionalUserFacade.isPresent()) {
             return optionalUserFacade.get();
         } else {
@@ -40,13 +41,13 @@ public class UserFacadeServiceImpl implements UserFacadeService {
 
     @Override
     public List<UserFacade> all() {
-        return facadeRopository.findAll();
+        return facadeRepository.findAll();
     }
 
     @Override
     public boolean deleteByRealId(String id) throws UserException {
-        if(facadeRopository.existsById(id)){
-            facadeRopository.deleteById(id);
+        if(facadeRepository.existsById(id)){
+            facadeRepository.deleteById(id);
             return true;
         }
         return false;
@@ -55,12 +56,12 @@ public class UserFacadeServiceImpl implements UserFacadeService {
     @Override
     public UserFacade update(String id, UserFacadeDto userFacadeDto) throws UserException {
 
-        Optional<UserFacade> u = facadeRopository.findById(id);
+        Optional<UserFacade> u = facadeRepository.findById(id);
         UserFacade userFacade = null;
         if(u.isPresent()){
             userFacade = u.get();
             userFacade.updateFacade(userFacadeDto.getFakeName(), userFacadeDto.getPhoto(), userFacadeDto.getHashTags());
-            facadeRopository.save(userFacade);
+            facadeRepository.save(userFacade);
 
         }
         return userFacade;

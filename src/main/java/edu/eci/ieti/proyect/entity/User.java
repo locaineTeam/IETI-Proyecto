@@ -27,9 +27,9 @@ public class User {
     @Id
     private String id;
     private String name;
+    private String lastName;
     @Indexed(unique=true)
     private String email;
-    private String lastName;
     private String birthDate;
     /**
      * The Roles.
@@ -44,7 +44,7 @@ public class User {
 
     //PRUEBA DATOS MATCH
     private HashSet<String> userRequests;
-    private HashSet<String> userAccepts;
+    private HashSet<String> userFriends;
 
     /**
      * Instantiates a new User.
@@ -81,7 +81,7 @@ public class User {
 
         //Match
         this.userRequests = new HashSet<>();
-        this.userAccepts = new HashSet<>();
+        this.userFriends = new HashSet<>();
     }
 
     /**
@@ -116,7 +116,7 @@ public class User {
 
         //Match
         this.userRequests = new HashSet<>();
-        this.userAccepts = new HashSet<>();
+        this.userFriends = new HashSet<>();
     }
 
     /**
@@ -139,7 +139,7 @@ public class User {
 
         //Match
         this.userRequests = new HashSet<>();
-        this.userAccepts = new HashSet<>();
+        this.userFriends = new HashSet<>();
 
     }
 
@@ -375,8 +375,16 @@ public class User {
      *
      * @return the user accepts
      */
-    public HashSet<String> getUserAccepts() {
-        return userAccepts;
+    public HashSet<String> getUserFriends() {
+        return userFriends;
+    }
+
+    public void setUserRequests(HashSet<String> userRequests) {
+        this.userRequests = userRequests;
+    }
+
+    public void setUserFriends(HashSet<String> userFriends) {
+        this.userFriends = userFriends;
     }
 
     /**
@@ -397,7 +405,7 @@ public class User {
         this.genero=userDto.getGenero();
         this.universidad= userDto.getUniversidad();
         this.preferences = userDto.getPreferences();
-        this.userAccepts = userDto.getUserAccepts();
+        this.userFriends = userDto.getUserFriends();
         this.userRequests = userDto.getUserRequests();
     }
 

@@ -4,6 +4,7 @@ package edu.eci.ieti.proyect.service;
 import edu.eci.ieti.proyect.dto.UserFacadeDto;
 import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
+import edu.eci.ieti.proyect.exception.UserFacadeException;
 
 import java.util.List;
 

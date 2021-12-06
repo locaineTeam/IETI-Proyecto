@@ -53,7 +53,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/some")
+    @PostMapping("/some")
     public ResponseEntity<?> findSomeById(@RequestBody List<String> usersId)
     {
         try{

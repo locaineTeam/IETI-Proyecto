@@ -210,5 +210,14 @@ public class UserServiceMongoDB implements UserService {
 
     //End Match Services
 
+    @Override
+    public List<User> findSomeById(List<String> usersId) throws UserException {
+        List<User> users = new ArrayList();
+        for(String id : usersId){
+            users.add(findById(id));
+        }
+        return users;
+    }
+
 
 }

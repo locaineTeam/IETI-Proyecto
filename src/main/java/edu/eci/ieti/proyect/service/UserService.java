@@ -85,5 +85,7 @@ public interface UserService {
     HashSet<String> getAllRequestByUserId(String userId) throws UserException;
 
     HashSet<String> getAllFriendsByUserId(String userId) throws UserException;
+    
+    List<User> findSomeById(List<String> usersId) throws UserException;
 
 }

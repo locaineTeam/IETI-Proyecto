@@ -7,6 +7,7 @@ import edu.eci.ieti.proyect.entity.document.Genders;
 import edu.eci.ieti.proyect.entity.document.Preferences;
 import edu.eci.ieti.proyect.exception.UserException;
 import edu.eci.ieti.proyect.service.UserService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,6 +53,16 @@ public class UserController {
 
     }
 
+    @GetMapping("/some")
+    public ResponseEntity<?> findSomeById(@RequestBody List<String> usersId)
+    {
+        try{
+            return new ResponseEntity<>(userService.findSomeById(usersId), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>("Se presenta un error", HttpStatus.BAD_REQUEST);
+        }
+    }
+    
     /**
      * Find by id response entity.
      *

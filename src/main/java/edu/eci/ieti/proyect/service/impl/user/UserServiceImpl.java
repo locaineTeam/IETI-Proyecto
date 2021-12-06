@@ -150,5 +150,10 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public List<User> findSomeById(List<String> usersId) throws UserException {
+        return null;
+    }
+
 
 }

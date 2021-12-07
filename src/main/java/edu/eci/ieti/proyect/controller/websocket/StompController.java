@@ -21,4 +21,10 @@ public class StompController {
         String json = gson.toJson(user);
         msgt.convertAndSend("/topic/university/chat/"+name, json);
     }
+    
+    @MessageMapping("/notification/{userId}")
+    public void handleNotification(String userIdToAdd, @DestinationVariable String userId){
+        System.out.println(userId);
+        msgt.convertAndSend("/topic/notification/"+userId, userIdToAdd);
+    }
 }

@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 /**
  * The type User controller.
@@ -22,7 +23,6 @@ import javax.annotation.security.RolesAllowed;
 @CrossOrigin(origins="http://localhost:3000")
 @RequestMapping( "/v1/user" )
 public class UserController {
-
 
     private final UserService userService;
 

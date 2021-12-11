@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.util.List;
 
 /**
  * The type User controller.
@@ -77,6 +78,17 @@ public class UserFacadeController {
         } catch (UserException e) {
 
             return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+    @PostMapping("/some")
+    public ResponseEntity<?> findSomeById(@RequestBody List<String> usersId)
+    {
+        try{
+            return new ResponseEntity<>(userFacadeService.findSomeById(usersId), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>("Se presenta un error", HttpStatus.BAD_REQUEST);
         }
     }
 

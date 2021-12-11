@@ -4,12 +4,12 @@ package edu.eci.ieti.proyect.service.impl.facade;
 import edu.eci.ieti.proyect.dto.UserFacadeDto;
 import edu.eci.ieti.proyect.entity.UserFacade;
 import edu.eci.ieti.proyect.exception.UserException;
-import edu.eci.ieti.proyect.exception.UserFacadeException;
 import edu.eci.ieti.proyect.repository.FacadeRepository;
 import edu.eci.ieti.proyect.service.UserFacadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,5 +65,15 @@ public class UserFacadeServiceImpl implements UserFacadeService {
 
         }
         return userFacade;
+    }
+
+    @Override
+    public List<UserFacade> findSomeById(List<String> usersId) throws UserException {
+
+        List<UserFacade> users = new ArrayList();
+        for(String id : usersId){
+            users.add(findByRealId(id));
+        }
+        return users;
     }
 }

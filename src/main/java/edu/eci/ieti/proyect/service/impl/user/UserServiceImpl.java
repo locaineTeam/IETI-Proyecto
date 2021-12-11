@@ -98,6 +98,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User updatePhoto(String photo, String userId) throws UserException {
+        return null;
+    }
+
+    @Override
     public User findByEmail(String email) throws UserException {
 
         List<User> users = map.values()

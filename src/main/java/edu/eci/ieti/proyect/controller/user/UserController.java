@@ -149,6 +149,17 @@ public class UserController {
 
     }
 
+    @PutMapping( "/{id}/photo" )
+    public ResponseEntity<?> updatePhoto(@RequestBody String photo, @PathVariable String id )
+    {
+        try {
+            return new ResponseEntity<>(userService.updatePhoto(photo,id),HttpStatus.OK);
+        } catch (UserException e) {
+            return new ResponseEntity<>(e,HttpStatus.NOT_FOUND);
+        }
+
+    }
+
     /**
      * Delete response entity.
      *

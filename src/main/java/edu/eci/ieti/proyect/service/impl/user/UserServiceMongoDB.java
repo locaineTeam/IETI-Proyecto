@@ -80,6 +80,17 @@ public class UserServiceMongoDB implements UserService {
     }
 
     @Override
+    public User updatePhoto(String photo, String userId) throws UserException {
+        if(userRepository.findById(userId).isPresent()){
+            User u = userRepository.findById(userId).get();
+            u.setFoto(photo);
+            userRepository.save(u);
+            return u;
+        }
+        return null;
+    }
+
+    @Override
     public User findByEmail(String email) throws UserException {
         Optional<User> user = userRepository.findByEmail(email);
         if(user.isPresent()){

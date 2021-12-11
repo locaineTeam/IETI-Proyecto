@@ -60,6 +60,8 @@ public interface UserService {
 //User update( User user, String userId ) throws UserException;
     User update( UserDto user, String userId ) throws UserException;
 
+    User updatePhoto(String photo, String userId) throws UserException;
+
     /**
      * Find by email user.
      *
